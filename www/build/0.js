@@ -1,15 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 509:
+/***/ 501:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomePageModule", function() { return WelcomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListMasterPageModule", function() { return ListMasterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome__ = __webpack_require__(522);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_master__ = __webpack_require__(514);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,37 +20,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var WelcomePageModule = /** @class */ (function () {
-    function WelcomePageModule() {
+var ListMasterPageModule = /** @class */ (function () {
+    function ListMasterPageModule() {
     }
-    WelcomePageModule = __decorate([
+    ListMasterPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__welcome__["a" /* WelcomePage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_3__welcome__["a" /* WelcomePage */]
+                __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]
             ]
         })
-    ], WelcomePageModule);
-    return WelcomePageModule;
+    ], ListMasterPageModule);
+    return ListMasterPageModule;
 }());
 
-//# sourceMappingURL=welcome.module.js.map
+//# sourceMappingURL=list-master.module.js.map
 
 /***/ }),
 
-/***/ 522:
+/***/ 514:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListMasterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,32 +63,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * The Welcome Page is a splash page that quickly describes the app,
- * and then directs the user to create an account or log in.
- * If you'd like to immediately put the user onto a login/signup page,
- * we recommend not using the Welcome page.
-*/
-var WelcomePage = /** @class */ (function () {
-    function WelcomePage(navCtrl) {
+
+var ListMasterPage = /** @class */ (function () {
+    function ListMasterPage(navCtrl, items, modalCtrl) {
         this.navCtrl = navCtrl;
+        this.items = items;
+        this.modalCtrl = modalCtrl;
+        this.currentItems = this.items.query();
     }
-    WelcomePage.prototype.login = function () {
-        this.navCtrl.push('LoginPage');
+    /**
+     * The view loaded, let's query our items for the list
+     */
+    ListMasterPage.prototype.ionViewDidLoad = function () {
     };
-    WelcomePage.prototype.signup = function () {
-        this.navCtrl.push('SignupPage');
+    /**
+     * Prompt the user to add a new item. This shows our ItemCreatePage in a
+     * modal and then adds the new item to our data source if the user created one.
+     */
+    ListMasterPage.prototype.addItem = function () {
+        var _this = this;
+        var addModal = this.modalCtrl.create('ItemCreatePage');
+        addModal.onDidDismiss(function (item) {
+            if (item) {
+                _this.items.add(item);
+            }
+        });
+        addModal.present();
     };
-    WelcomePage = __decorate([
+    /**
+     * Delete an item from the list of items.
+     */
+    ListMasterPage.prototype.deleteItem = function (item) {
+        this.items.delete(item);
+    };
+    /**
+     * Navigate to the detail page for this item.
+     */
+    ListMasterPage.prototype.openItem = function (item) {
+        this.navCtrl.push('ItemDetailPage', {
+            item: item
+        });
+    };
+    ListMasterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\welcome\welcome.html"*/'<ion-content scroll="false">\n  <div class="scroll-content">\n  <div class="splash-logo"></div>\n  <div padding>\n    <button ion-button block (click)="signup()">{{ \'SIGNUP\' | translate }}</button>\n    <button ion-button block (click)="login()" class="login">{{ \'LOGIN\' | translate }}</button>\n  </div></div>\n</ion-content>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\welcome\welcome.html"*/
+            selector: 'page-list-master',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\list-master\list-master.html"*/'  <ion-header>\n    <ion-navbar>\n      <ion-title>Playlist</ion-title>\n    </ion-navbar>\n  </ion-header>\n  <ion-content>\n        <ion-list>\n          <button ion-item (click)="openPage(homePage)">\n            Home\n          </button>\n          <button ion-item (click)="openPage(friendsPage)">\n            Friends\n          </button>\n          <button ion-item (click)="openPage(eventsPage)">\n            Events\n          </button>\n          <button ion-item (click)="closeMenu()">\n            Close Menu\n          </button>\n      </ion-list>\n    </ion-content>\n\n<ion-nav #content [root]="list-master"></ion-nav>\n   \n\n\n\n<ion-content>\n\n  <ion-list>\n    <ion-item-sliding *ngFor="let item of currentItems">\n      <button ion-item (click)="openItem(item)">\n        <ion-avatar item-start>\n          <img [src]="item.profilePic" />\n        </ion-avatar>\n        <h2>{{item.name}}</h2>\n        <p>{{item.about}}</p>\n        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>\n      </button>\n\n      <ion-item-options>\n        <button ion-button color="danger" (click)="deleteItem(item)">\n          {{ \'DELETE_BUTTON\' | translate }}\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\list-master\list-master.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
-    ], WelcomePage);
-    return WelcomePage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* Items */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* Items */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _c || Object])
+    ], ListMasterPage);
+    return ListMasterPage;
+    var _a, _b, _c;
 }());
 
-//# sourceMappingURL=welcome.js.map
+//# sourceMappingURL=list-master.js.map
 
 /***/ })
 

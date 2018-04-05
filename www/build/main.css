@@ -19878,7 +19878,7 @@ ion-spinner.spinner-paused svg {
   min-width: 35px;
   height: 30px;
   font-size: 30px;
-  color: #8c8c8c;
+  color: #f53d3d;
 }
 
 .tabs-ios .tab-button-icon::before {
@@ -20054,7 +20054,7 @@ ion-spinner.spinner-paused svg {
   margin-top: 1px;
   min-width: 2.4rem;
   font-size: 2.4rem;
-  color: rgba(60, 60, 60, 0.7);
+  color: #f53d3d;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -20253,7 +20253,7 @@ ion-spinner.spinner-paused svg {
 .tabs-wp .tab-button-icon {
   min-width: 2.4rem;
   font-size: 2.4rem;
-  color: rgba(140, 140, 140, 0.7);
+  color: #f53d3d;
 }
 
 .tabs-wp .tab-button[aria-selected=true] .tab-button-icon {

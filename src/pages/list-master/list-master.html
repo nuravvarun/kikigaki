@@ -1,16 +1,29 @@
-<ion-header>
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Playlist</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+        <ion-list>
+          <button ion-item (click)="openPage(homePage)">
+            Home
+          </button>
+          <button ion-item (click)="openPage(friendsPage)">
+            Friends
+          </button>
+          <button ion-item (click)="openPage(eventsPage)">
+            Events
+          </button>
+          <button ion-item (click)="closeMenu()">
+            Close Menu
+          </button>
+      </ion-list>
+    </ion-content>
 
-  <ion-navbar>
-    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
+<ion-nav #content [root]="list-master"></ion-nav>
+   
 
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
 
-</ion-header>
 
 <ion-content>
 

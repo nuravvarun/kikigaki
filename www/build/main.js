@@ -22,11 +22,11 @@ webpackEmptyAsyncContext.id = 171;
 
 var map = {
 	"../pages/cards/cards.module": [
-		497,
+		498,
 		12
 	],
 	"../pages/content/content.module": [
-		498,
+		497,
 		11
 	],
 	"../pages/item-create/item-create.module": [
@@ -39,39 +39,39 @@ var map = {
 	],
 	"../pages/list-master/list-master.module": [
 		501,
-		8
+		0
 	],
 	"../pages/login/login.module": [
 		502,
-		7
+		8
 	],
 	"../pages/menu/menu.module": [
 		503,
-		6
+		7
 	],
 	"../pages/search/search.module": [
 		504,
-		5
+		6
 	],
 	"../pages/settings/settings.module": [
 		505,
-		4
+		5
 	],
 	"../pages/signup/signup.module": [
 		506,
-		3
+		4
 	],
 	"../pages/tabs/tabs.module": [
 		507,
-		2
+		3
 	],
 	"../pages/tutorial/tutorial.module": [
 		508,
-		1
+		2
 	],
 	"../pages/welcome/welcome.module": [
 		509,
-		0
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -271,8 +271,8 @@ var FirstRunPage = 'TutorialPage';
 // Change this if not using tabs
 var MainPage = 'TabsPage';
 // The initial root pages for our tabs (remove if not using tabs)
-var Tab1Root = 'ListMasterPage';
-var Tab2Root = 'SearchPage';
+var Tab1Root = 'SearchPage';
+var Tab2Root = 'ListMasterPage';
 var Tab3Root = 'SettingsPage';
 //# sourceMappingURL=pages.js.map
 
@@ -372,8 +372,8 @@ var AppModule = /** @class */ (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/cards/cards.module#CardsPageModule', name: 'CardsPage', segment: 'cards', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/cards/cards.module#CardsPageModule', name: 'CardsPage', segment: 'cards', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
