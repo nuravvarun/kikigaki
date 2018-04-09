@@ -19,6 +19,10 @@ import { HttpModule } from '@angular/http';
 
 import { AngularFireModule,FirebaseApp  } from 'angularfire2';
 import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from 'angularfire2/firestore';
+import 'rxjs/add/operator/map';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
   authDomain: "kikigakiaudiosdb.firebaseapp.com",
@@ -59,6 +63,7 @@ export function provideSettings(storage: Storage) {
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     BrowserModule,
     HttpClientModule,
     TranslateModule.forRoot({
