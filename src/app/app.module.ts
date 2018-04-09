@@ -14,6 +14,22 @@ import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
+
+
+import { AngularFireModule,FirebaseApp  } from 'angularfire2';
+import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
+export const firebaseConfig = {
+  apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
+  authDomain: "kikigakiaudiosdb.firebaseapp.com",
+  databaseURL: "https://kikigakiaudiosdb.firebaseio.com",
+  projectId: "kikigakiaudiosdb",
+  storageBucket: "kikigakiaudiosdb.appspot.com",
+  messagingSenderId: "506828991311"
+};
+
+
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -41,6 +57,8 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     BrowserModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -51,13 +69,15 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp
   ],
   providers: [
+    
     Api,
     Items,
     User,
@@ -66,7 +86,7 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
 export class AppModule { }

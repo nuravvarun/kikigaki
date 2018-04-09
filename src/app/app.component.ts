@@ -8,7 +8,6 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 import firebase from 'firebase';
-import { config } from './credentials';
 
 
 
@@ -57,7 +56,14 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    firebase.initializeApp(config);
+    firebase.initializeApp({
+      apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
+      authDomain: "kikigakiaudiosdb.firebaseapp.com",
+      databaseURL: "https://kikigakiaudiosdb.firebaseio.com",
+      projectId: "kikigakiaudiosdb",
+      storageBucket: "kikigakiaudiosdb.appspot.com",
+      messagingSenderId: "506828991311"
+    });
 
     this.initTranslate();
   }

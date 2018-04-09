@@ -1,48 +1,7 @@
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Playlist</ion-title>
-    </ion-navbar>
-  </ion-header>
-  <ion-content>
-        <ion-list>
-          <button ion-item (click)="openPage(homePage)">
-            Home
-          </button>
-          <button ion-item (click)="openPage(friendsPage)">
-            Friends
-          </button>
-          <button ion-item (click)="openPage(eventsPage)">
-            Events
-          </button>
-          <button ion-item (click)="closeMenu()">
-            Close Menu
-          </button>
-      </ion-list>
-    </ion-content>
-
-<ion-nav #content [root]="list-master"></ion-nav>
-   
-
-
-
 <ion-content>
-
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.profilePic" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-      </button>
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+    <ion-list>
+        <ion-item *ngFor="let audio of audios | async">
+            <h2>{{ audio.name }}</h2>
+        </ion-item>
+      </ion-list>
 </ion-content>
