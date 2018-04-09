@@ -8,17 +8,18 @@
 
 
 <ion-content>
-  <form (submit)="doSignup()">
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
-      </ion-item>
-
-      <ion-item>
         <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+        <ion-input formControlName="email" type="email"
+        placeholder="Your email address"
+        [class.invalid]="!signupForm.controls.email.valid && blur"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid
+        && signupForm.controls.email.touched">
+        <p>Please enter a valid email.</p>
       </ion-item>
 
       <!--
@@ -32,11 +33,13 @@
 
       <ion-item>
         <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+        <ion-input formControlName="password" type="password"
+        placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && blur"></ion-input>
       </ion-item>
-
+     
       <div padding>
-        <button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
+        <button ion-button color="primary" block [disabled]="!signupForm.valid">{{ 'SIGNUP_BUTTON' | translate }}</button>
       </div>
 
     </ion-list>

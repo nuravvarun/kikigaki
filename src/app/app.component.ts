@@ -3,12 +3,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
-
+import { MenuController } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 import firebase from 'firebase';
-
+import { ListMasterPage } from '../pages/list-master/list-master';
+import { User } from '../providers/providers';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -30,8 +32,8 @@ import firebase from 'firebase';
       <button ion-item (click)="openPage(eventsPage)">
         Events
       </button>
-      <button ion-item (click)="closeMenu()">
-        Close Menu
+      <button ion-item (click)="logoutUser()">
+        Log Out
       </button>
     </ion-list>
      
@@ -41,7 +43,7 @@ import firebase from 'firebase';
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+ 
 
   @ViewChild(Nav) nav: Nav;
 
@@ -58,14 +60,15 @@ export class MyApp {
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' }
   ]
-
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  rootPage:any;  
+  constructor( public menuCtrl: MenuController, public user: User,private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
     firebase.initializeApp({
       apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
       authDomain: "kikigakiaudiosdb.firebaseapp.com",
@@ -76,6 +79,16 @@ export class MyApp {
     });
 
     this.initTranslate();
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+      this.rootPage = FirstRunPage;
+      unsubscribe();
+      } else {
+      this.rootPage = 'ListMasterPage';
+      unsubscribe();
+      }
+      });
+    
   }
 
   initTranslate() {
@@ -109,4 +122,17 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  logoutUser(): Promise<void> {
+    const userId: string = firebase.auth().currentUser.uid;
+    firebase
+    .database()
+    .ref(`/userProfile/${userId}`)
+    .off();
+    this.nav.setRoot(LoginPage);
+    this.menuCtrl.close();
+    return firebase.auth().signOut();
+   
+
+    }
 }

@@ -44,14 +44,13 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 $tabs-tab-text-color-active:black;
-$tabs-md-tab-icon-color:color($colors, danger);
-$tabs-ios-tab-icon-color:color($colors, danger);
-$tabs-wp-tab-icon-color:color($colors, danger);
+$tabs-md-tab-icon-color:color($colors, dark);
+$tabs-ios-tab-icon-color:color($colors, dark);
+$tabs-wp-tab-icon-color:color($colors, dark);
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
 
 
 
