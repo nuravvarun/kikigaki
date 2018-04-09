@@ -5,11 +5,11 @@ webpackJsonp([8],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListMasterPageModule", function() { return ListMasterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemDetailPageModule", function() { return ItemDetailPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_master__ = __webpack_require__(654);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__item_detail__ = __webpack_require__(654);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,27 +20,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ListMasterPageModule = /** @class */ (function () {
-    function ListMasterPageModule() {
+var ItemDetailPageModule = /** @class */ (function () {
+    function ItemDetailPageModule() {
     }
-    ListMasterPageModule = __decorate([
+    ItemDetailPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */],
+                __WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]
+                __WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */]
             ]
         })
-    ], ListMasterPageModule);
-    return ListMasterPageModule;
+    ], ItemDetailPageModule);
+    return ItemDetailPageModule;
 }());
 
-//# sourceMappingURL=list-master.module.js.map
+//# sourceMappingURL=item-detail.module.js.map
 
 /***/ }),
 
@@ -48,12 +48,10 @@ var ListMasterPageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListMasterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,24 +64,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var ListMasterPage = /** @class */ (function () {
-    function ListMasterPage(navCtrl, modalCtrl, angFire) {
+var ItemDetailPage = /** @class */ (function () {
+    function ItemDetailPage(navCtrl, navParams, items) {
         this.navCtrl = navCtrl;
-        this.modalCtrl = modalCtrl;
-        this.audiosRef = angFire.collection('audio_1');
-        this.audios = this.audiosRef.valueChanges();
+        this.item = navParams.get('item') || items.defaultItem;
     }
-    ListMasterPage = __decorate([
+    ItemDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list-master',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\list-master\list-master.html"*/'<ion-header>\n\n    <ion-navbar>\n            <button ion-button menuToggle icon-only>\n                    <ion-icon name=\'menu\'></ion-icon>\n            </button>\n      <ion-title>Playlist</ion-title>\n    </ion-navbar> \n  </ion-header>\n  \n  <ion-content>\n<ion-list>\n    <ion-item *ngFor="let audio of audios | async">\n      <ion-thumbnail item-start>\n        <img src="../assets/img/cd_thumbnail.png">\n      </ion-thumbnail>\n      <h2>{{ audio.name }}</h2>\n      <p>{{ audio.type }} • {{ audio.updated_at }}</p>\n      <button ion-button clear item-end>Play</button>\n    </ion-item>\n  </ion-list>\n</ion-content>\n\n  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\list-master\list-master.html"*/,
+            selector: 'page-item-detail',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\item-detail\item-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ item.name }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div class="item-profile" text-center #profilePic [style.background-image]="\'url(\' + item.profilePic + \')\'">\n  </div>\n\n  <div class="item-detail" padding>\n    <h2>{{item.name}}</h2>\n    <p>{{item.about}}</p>\n  </div>\n</ion-content>'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\item-detail\item-detail.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__["a" /* AngularFirestore */]])
-    ], ListMasterPage);
-    return ListMasterPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* Items */]])
+    ], ItemDetailPage);
+    return ItemDetailPage;
 }());
 
-//# sourceMappingURL=list-master.js.map
+//# sourceMappingURL=item-detail.js.map
 
 /***/ })
 

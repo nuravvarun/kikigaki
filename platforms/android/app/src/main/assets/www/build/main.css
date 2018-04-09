@@ -19878,7 +19878,7 @@ ion-spinner.spinner-paused svg {
   min-width: 35px;
   height: 30px;
   font-size: 30px;
-  color: #8c8c8c;
+  color: #222;
 }
 
 .tabs-ios .tab-button-icon::before {
@@ -20054,7 +20054,7 @@ ion-spinner.spinner-paused svg {
   margin-top: 1px;
   min-width: 2.4rem;
   font-size: 2.4rem;
-  color: rgba(60, 60, 60, 0.7);
+  color: #222;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -20253,7 +20253,7 @@ ion-spinner.spinner-paused svg {
 .tabs-wp .tab-button-icon {
   min-width: 2.4rem;
   font-size: 2.4rem;
-  color: rgba(140, 140, 140, 0.7);
+  color: #222;
 }
 
 .tabs-wp .tab-button[aria-selected=true] .tab-button-icon {
@@ -25726,11 +25726,17 @@ page-tutorial .toolbar-background {
   border-color: transparent;
 }
 
+page-tutorial .scroll-content {
+  background: url("../assets/img/background.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
 page-tutorial .slide-zoom {
   height: 100%;
 }
 
 page-tutorial .slide-title {
+  color: white;
   margin-top: 2.8rem;
 }
 
@@ -25751,59 +25757,48 @@ page-tutorial p {
   color: #60646B;
 }
 
-page-tutorial p b {
+page-tutorial b {
   color: #000000;
 }
 
-page-welcome .splash-bg {
-  position: relative;
-  background: url("../assets/img/splashbg.png") no-repeat transparent;
+page-tutorial h2 {
+  margin: auto;
+}
+
+page-tutorial button.getstart {
+  margin-top: 25px;
+  background-color: white;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+page-tutorial button.already {
+  margin-top: 25px;
+  background-color: #1e2127;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+page-welcome .scroll-content {
+  background: url("../assets/img/background.png") no-repeat center center fixed;
   background-size: cover;
-  height: 45%;
-  z-index: 1;
-  background-repeat: repeat-x;
-  -webkit-animation: animatedBackground 40s linear infinite;
-  animation: animatedBackground 40s linear infinite;
-}
-
-@-webkit-keyframes animatedBackground {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
-}
-
-@keyframes animatedBackground {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
-}
-
-page-welcome .splash-info {
-  position: relative;
-  z-index: 2;
-  margin-top: -64px;
-  text-align: center;
 }
 
 page-welcome .splash-logo {
-  margin: auto;
-  background: url("../assets/img/appicon.png") repeat transparent;
+  margin: 60px 75px;
+  background: url("../assets/img/ica-slidebox-img-4.png") no-repeat transparent;
   background-size: 100%;
-  width: 128px;
-  height: 128px;
+  width: 60%;
+  height: 40%;
 }
 
 page-welcome .splash-intro {
   font-size: 18px;
   font-weight: bold;
   max-width: 80%;
-  margin: auto;
+  margin-top: 35%;
 }
 
 page-welcome button.login {
@@ -25812,8 +25807,4 @@ page-welcome button.login {
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   color: #333;
-}
-
-page-welcome button.login.activated {
-  background-color: gainsboro;
 }
