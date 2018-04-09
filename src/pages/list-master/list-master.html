@@ -1,7 +1,24 @@
-<ion-content>
-    <ion-list>
-        <ion-item *ngFor="let audio of audios | async">
-            <h2>{{ audio.name }}</h2>
-        </ion-item>
-      </ion-list>
+<ion-header>
+
+    <ion-navbar>
+            <button ion-button menuToggle icon-only>
+                    <ion-icon name='menu'></ion-icon>
+            </button>
+      <ion-title>Playlist</ion-title>
+    </ion-navbar> 
+  </ion-header>
+  
+  <ion-content>
+<ion-list>
+    <ion-item *ngFor="let audio of audios | async">
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>{{ audio.name }}</h2>
+      <p>{{ audio.type }} • {{ audio.updated_at }}</p>
+      <button ion-button clear item-end>Play</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
