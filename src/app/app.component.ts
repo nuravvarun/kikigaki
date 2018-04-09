@@ -11,6 +11,7 @@ import firebase from 'firebase';
 import { ListMasterPage } from '../pages/list-master/list-master';
 import { User } from '../providers/providers';
 import { LoginPage } from '../pages/login/login';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 
 @Component({
@@ -129,7 +130,7 @@ export class MyApp {
     .database()
     .ref(`/userProfile/${userId}`)
     .off();
-    this.nav.setRoot(LoginPage);
+    this.nav.setRoot(WelcomePage);
     this.menuCtrl.close();
     return firebase.auth().signOut();
    

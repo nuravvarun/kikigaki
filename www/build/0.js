@@ -44,6 +44,31 @@ var SignupPageModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 649:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmailValidator; });
+var EmailValidator = /** @class */ (function () {
+    function EmailValidator() {
+    }
+    EmailValidator.isValid = function (control) {
+        var re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
+            .test(control.value);
+        if (re) {
+            return null;
+        }
+        return {
+            invalidEmail: true
+        };
+    };
+    return EmailValidator;
+}());
+
+//# sourceMappingURL=email.js.map
+
+/***/ }),
+
 /***/ 658:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
