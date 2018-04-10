@@ -8,11 +8,9 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 import firebase from 'firebase';
-import { ListMasterPage } from '../pages/list-master/list-master';
 import { User } from '../providers/providers';
-import { LoginPage } from '../pages/login/login';
 import { WelcomePage } from '../pages/welcome/welcome';
-
+import { Vibration } from '@ionic-native/vibration';
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -52,22 +50,23 @@ export class MyApp {
     { title: 'Tutorial', component: 'TutorialPage' },
     { title: 'Welcome', component: 'WelcomePage' },
     { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Cards', component: 'CardsPage' },
     { title: 'Content', component: 'ContentPage' },
     { title: 'Login', component: 'LoginPage' },
     { title: 'Signup', component: 'SignupPage' },
     { title: 'Master Detail', component: 'ListMasterPage' },
-    { title: 'Menu', component: 'MenuPage' },
     { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' }
+    { title: 'Item Details', component: 'ItemDetailPage' }
+    
   ]
   rootPage:any;  
-  constructor( public menuCtrl: MenuController, public user: User,private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private vibration: Vibration, public menuCtrl: MenuController, public user: User,private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, public splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.statusBar.styleDefault();
+      this.vibration.vibrate(1000);
+      
     });
 
     firebase.initializeApp({
@@ -80,6 +79,7 @@ export class MyApp {
     });
 
     this.initTranslate();
+    
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (!user) {
       this.rootPage = FirstRunPage;

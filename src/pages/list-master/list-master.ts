@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController} from 'ionic-angular';
+import { IonicPage, ModalController, NavController,Platform} from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
@@ -16,9 +16,4 @@ export class ListMasterPage {
   this.audiosRef = angFire.collection('audio_1');
   this.audios=this.audiosRef.valueChanges();
   }
-
-  /**
-   * The view loaded, let's query our items for the list
-   */
-
 }

@@ -15,7 +15,6 @@ export class TutorialPage {
   constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform)
    {
     this.dir = platform.dir();
-    
   }
 
   startApp() {   
@@ -34,10 +33,11 @@ export class TutorialPage {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
   }
-
-  ionViewWillLeave() {
-    // enable the root left menu when leaving the tutorial page
+  ionViewDidLeave() {
+    // the root left menu should be disabled on the tutorial page
     this.menu.enable(true);
   }
+  
+  
 
 }

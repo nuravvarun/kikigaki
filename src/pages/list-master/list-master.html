@@ -15,10 +15,9 @@
         <img src="../assets/img/cd_thumbnail.png">
       </ion-thumbnail>
       <h2>{{ audio.name }}</h2>
-      <p>{{ audio.type }} • {{ audio.updated_at }}</p>
+      <p>{{ audio.type }} • {{ 'MAX_QUEST' | translate }} {{ audio.max_questions }}</p>
       <button ion-button clear item-end>Play</button>
     </ion-item>
   </ion-list>
 </ion-content>
-
-  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

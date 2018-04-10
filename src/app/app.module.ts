@@ -17,12 +17,14 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 
 
-import { AngularFireModule,FirebaseApp  } from 'angularfire2';
-import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from 'angularfire2/firestore';
-import 'rxjs/add/operator/map';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
 
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import 'rxjs/add/operator/map';
+import { WelcomePageModule } from '../pages/welcome/welcome.module';
+
+import { Vibration } from '@ionic-native/vibration';
 export const firebaseConfig = {
   apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
   authDomain: "kikigakiaudiosdb.firebaseapp.com",
@@ -61,6 +63,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   imports: [
+    WelcomePageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
@@ -89,6 +92,7 @@ export function provideSettings(storage: Storage) {
     Camera,
     SplashScreen,
     StatusBar,
+    Vibration,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
