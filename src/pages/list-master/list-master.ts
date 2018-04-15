@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { AudioplayPage } from '../audioplay/audioplay';
 import { FirebaseDatabase } from '@firebase/database-types';
+import { MediaObject } from '@ionic-native/media';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,7 @@ export class ListMasterPage {
   this.audiosRef = angFire.collection('audio_1');
   this.audios=this.audiosRef.valueChanges();
   }
-audioTest(audiof:string){
+audioTest(audiof:MediaObject){
   let myModal = this.modalCtrl.create(AudioplayPage,audiof);
   myModal.present();
   }

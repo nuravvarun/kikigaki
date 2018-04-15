@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
 MERGED from [:CordovaLib] D:\Projectkikigaki\kikigaki\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
 	package
 		ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:2:98-124
 		INJECTED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml
@@ -102,3 +102,7 @@ uses-permission#android.permission.READ_PHONE_STATE
 ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:17:5-75
 	android:name
 		ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:17:22-72
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:18:5-71
+	android:name
+		ADDED from D:\Projectkikigaki\kikigaki\platforms\android\app\src\main\AndroidManifest.xml:18:22-68

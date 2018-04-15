@@ -25,6 +25,10 @@ import 'rxjs/add/operator/map';
 import { WelcomePageModule } from '../pages/welcome/welcome.module';
 import { AudioplayPage } from '../pages/audioplay/audioplay';
 import { Vibration } from '@ionic-native/vibration';
+import {Media} from '@ionic-native/media';
+
+import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
   authDomain: "kikigakiaudiosdb.firebaseapp.com",
@@ -33,7 +37,9 @@ export const firebaseConfig = {
   storageBucket: "kikigakiaudiosdb.appspot.com",
   messagingSenderId: "506828991311"
 };
-
+export function myCustomAudioProviderFactory() {
+  return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
+}
 
 
 
@@ -81,7 +87,8 @@ export function provideSettings(storage: Storage) {
     }),
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpModule
+    HttpModule,
+    IonicAudioModule.forRoot(defaultAudioProviderFactory)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -95,6 +102,7 @@ export function provideSettings(storage: Storage) {
     User,
     Camera,
     SplashScreen,
+    Media,
     StatusBar,
     Vibration,
     NativeAudio,
