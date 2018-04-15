@@ -16,20 +16,20 @@ import { Vibration } from '@ionic-native/vibration';
   template: `<ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Pages</ion-title>
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
     <ion-list>
       <button ion-item (click)="openPage(homePage)">
-        Home
+        About
       </button>
       <button ion-item (click)="openPage(friendsPage)">
-        Friends
+        Settings
       </button>
       <button ion-item (click)="openPage(eventsPage)">
-        Events
+        Review Us
       </button>
       <button ion-item (click)="logoutUser()">
         Log Out
@@ -55,7 +55,8 @@ export class MyApp {
     { title: 'Signup', component: 'SignupPage' },
     { title: 'Master Detail', component: 'ListMasterPage' },
     { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Item Details', component: 'ItemDetailPage' }
+    { title: 'Item Details', component: 'ItemDetailPage' },
+    { title: 'Audio Player', component: 'AudioplayPage' }
     
   ]
   rootPage:any;  
@@ -85,7 +86,7 @@ export class MyApp {
       this.rootPage = FirstRunPage;
       unsubscribe();
       } else {
-      this.rootPage = 'ListMasterPage';
+      this.rootPage = 'TabsPage';
       unsubscribe();
       }
       });

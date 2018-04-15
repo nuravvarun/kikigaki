@@ -12,11 +12,11 @@
 <ion-list>
     <ion-item *ngFor="let audio of audios | async">
       <ion-thumbnail item-start>
-        <img src="../assets/img/cd_thumbnail.png">
+        <img src="assets/img/cd_thumbnail.png">
       </ion-thumbnail>
       <h2>{{ audio.name }}</h2>
       <p>{{ audio.type }} • {{ 'MAX_QUEST' | translate }} {{ audio.max_questions }}</p>
-      <button ion-button clear item-end>Play</button>
+      <button ion-button clear item-end (click)="audioTest({audiof:audio.name})">Play</button>
     </ion-item>
   </ion-list>
 </ion-content>

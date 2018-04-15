@@ -33,10 +33,6 @@ export class TutorialPage {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
   }
-  ionViewDidLeave() {
-    // the root left menu should be disabled on the tutorial page
-    this.menu.enable(true);
-  }
   
   
 

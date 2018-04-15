@@ -15,7 +15,7 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
-
+import { NativeAudio } from '@ionic-native/native-audio';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
@@ -23,7 +23,7 @@ import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
 import { WelcomePageModule } from '../pages/welcome/welcome.module';
-
+import { AudioplayPage } from '../pages/audioplay/audioplay';
 import { Vibration } from '@ionic-native/vibration';
 export const firebaseConfig = {
   apiKey: "AIzaSyCYK_GRsKygHXQGXbPpPFUHC-XrAWBfMoM",
@@ -60,11 +60,14 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    AudioplayPage
   ],
   imports: [
+  
     WelcomePageModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserModule,
@@ -82,7 +85,8 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    AudioplayPage
   ],
   providers: [
     
@@ -93,6 +97,7 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Vibration,
+    NativeAudio,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },

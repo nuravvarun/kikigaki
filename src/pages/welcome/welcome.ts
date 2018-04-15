@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController,MenuController } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-welcome',
@@ -7,13 +7,23 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController,public menu: MenuController) { }
 
+ 
   login() {
     this.navCtrl.push('LoginPage');
   }
 
   signup() {
     this.navCtrl.push('SignupPage');
+  }
+
+  ionViewDidEnter() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(false);
+  }
+  ionViewDidLeave() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(true);
   }
 }

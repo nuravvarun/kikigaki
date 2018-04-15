@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController,Platform} from 'ionic-angular';
+import { IonicPage, ModalController, NavController} from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
+
+import { AudioplayPage } from '../audioplay/audioplay';
+import { FirebaseDatabase } from '@firebase/database-types';
+
 @IonicPage()
 @Component({
   selector: 'page-list-master',
@@ -16,4 +20,9 @@ export class ListMasterPage {
   this.audiosRef = angFire.collection('audio_1');
   this.audios=this.audiosRef.valueChanges();
   }
+audioTest(audiof:string){
+  let myModal = this.modalCtrl.create(AudioplayPage,audiof);
+  myModal.present();
+  }
+
 }
