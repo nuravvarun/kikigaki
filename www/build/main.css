@@ -26889,6 +26889,85 @@ audio-track-progress-bar time {
   text-align: center;
 }
 
+progress-bar .progress-outer {
+  width: 100%;
+  padding: 1px;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #fff;
+}
+
+progress-bar .progress-inner {
+  min-width: 1%;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 2px;
+  background-color: #222;
+}
+
+.ios page-audioplay ion-list, .md page-audioplay ion-list {
+  margin-bottom: 110px;
+}
+
+.ios page-audioplay ion-list .alternate, .md page-audioplay ion-list .alternate {
+  background-color: #32db64;
+}
+
+.ios page-audioplay ion-list .playing, .md page-audioplay ion-list .playing {
+  background-color: #222;
+}
+
+.ios page-audioplay ion-list .playing img, .md page-audioplay ion-list .playing img {
+  opacity: 0.4;
+}
+
+.ios page-audioplay ion-avatar, .md page-audioplay ion-avatar {
+  position: relative;
+}
+
+.ios page-audioplay ion-spinner, .md page-audioplay ion-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 4px !important;
+}
+
+.ios page-audioplay [ion-item], .md page-audioplay [ion-item] {
+  background-color: #488aff;
+  padding: 20px;
+}
+
+.ios page-audioplay ion-card, .md page-audioplay ion-card {
+  background-color: #f4f4f4;
+  opacity: 0.9;
+  height: 90px;
+  bottom: 0;
+}
+
+.ios page-audioplay ion-footer, .md page-audioplay ion-footer {
+  height: 75px;
+  background-color: #222;
+}
+
+.ios page-audioplay ion-footer ion-grid, .ios page-audioplay ion-footer ion-row, .ios page-audioplay ion-footer ion-col, .md page-audioplay ion-footer ion-grid, .md page-audioplay ion-footer ion-row, .md page-audioplay ion-footer ion-col {
+  height: 100%;
+}
+
+.ios page-audioplay ion-footer ion-col, .md page-audioplay ion-footer ion-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 page-item-detail .item-profile {
   width: 100%;
   background-position: center center;

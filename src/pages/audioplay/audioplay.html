@@ -14,11 +14,38 @@
 
 
 <ion-content padding>
-       
-  <button ion-button [color]="isDanger ? 'danger' : 'primary'" [outline]="isOutline" (click)=" playSelectedTrack()">
-    Danger (Solid)
-  </button>
-        
-
-
+  <ion-list>
+  <ion-item *ngFor="let question of questions">
+  
+       <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+  
+  </ion-item>
+</ion-list>      
 </ion-content>
+<ion-footer>
+  <progress-bar></progress-bar>
+  <ion-grid>
+
+      <ion-row>
+
+          <ion-col width="33">
+              <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+          </ion-col>
+
+          <ion-col width="33">
+              <button (click)="playTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+              <button  (click)="pauseTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
+          </ion-col>
+
+          <ion-col width="33">
+              <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+          </ion-col>
+
+      </ion-row>
+
+  </ion-grid>
+
+</ion-footer>

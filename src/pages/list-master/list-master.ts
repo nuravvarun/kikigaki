@@ -21,8 +21,9 @@ export class ListMasterPage {
   this.audiosRef = angFire.collection('audio_1');
   this.audios=this.audiosRef.valueChanges();
   }
-audioTest(audiof:MediaObject){
-  let myModal = this.modalCtrl.create(AudioplayPage,audiof);
+audioTest(audiof:MediaObject,audiokey:Text){
+  let obj={audiof,audiokey};
+  let myModal = this.modalCtrl.create(AudioplayPage,obj);
   myModal.present();
   }
 

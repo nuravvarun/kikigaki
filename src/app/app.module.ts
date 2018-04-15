@@ -27,6 +27,8 @@ import { AudioplayPage } from '../pages/audioplay/audioplay';
 import { Vibration } from '@ionic-native/vibration';
 import {Media} from '@ionic-native/media';
 
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+
 import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
 
 export const firebaseConfig = {
@@ -67,7 +69,8 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
-    AudioplayPage
+    AudioplayPage,
+    ProgressBarComponent 
   ],
   imports: [
   

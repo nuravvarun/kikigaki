@@ -22,7 +22,7 @@ webpackEmptyAsyncContext.id = 224;
 
 var map = {
 	"../pages/audioplay/audioplay.module": [
-		652,
+		655,
 		8
 	],
 	"../pages/content/content.module": [
@@ -34,19 +34,19 @@ var map = {
 		6
 	],
 	"../pages/list-master/list-master.module": [
-		655,
+		658,
 		5
 	],
 	"../pages/login/login.module": [
-		656,
+		657,
 		1
 	],
 	"../pages/settings/settings.module": [
-		657,
+		656,
 		4
 	],
 	"../pages/signup/signup.module": [
-		658,
+		661,
 		0
 	],
 	"../pages/tabs/tabs.module": [
@@ -77,7 +77,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 291:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -141,13 +141,13 @@ var Api = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 292:
+/***/ 284:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Items; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(479);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -366,9 +366,8 @@ var Tab3Root = 'ContentPage';
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudioplayPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_audio__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_media__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_audio__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_media__ = __webpack_require__(336);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -382,7 +381,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
  * Generated class for the AudioplayPage page.
  *
@@ -390,38 +388,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var AudioplayPage = /** @class */ (function () {
-    function AudioplayPage(navCtrl, media, nativeAudio, _audioProvider, navParams, modalCtrl) {
+    function AudioplayPage(navCtrl, media, _audioProvider, navParams, modalCtrl) {
         this.navCtrl = navCtrl;
         this.media = media;
-        this.nativeAudio = nativeAudio;
         this._audioProvider = _audioProvider;
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
+        this.file = this.media.create(this.navParams.get('audiof'));
     }
     AudioplayPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AudioplayPage');
         console.log(this.navParams.get('audiof'));
+        console.log(this.navParams.get('audiokey'));
     };
-    AudioplayPage.prototype.playSelectedTrack = function () {
-        // use AudioProvider to control selected track 
-        //this._audioProvider.play(this.navParams.get('audiof'));
-        var file = this.media.create(this.navParams.get('audiof'));
-        file.play();
+    AudioplayPage.prototype.playTrack = function (track) {
+        this.file.play();
     };
-    AudioplayPage.prototype.pauseSelectedTrack = function () {
-        // use AudioProvider to control selected track 
-        this._audioProvider.pause(this.navParams.get('audiof'));
+    AudioplayPage.prototype.pauseTrack = function (track) {
+        this.file.pause();
     };
-    AudioplayPage.prototype.onTrackFinished = function (track) {
-        console.log('Track finished', track);
-    };
+    AudioplayPage.prototype.nextTrack = function () { };
+    AudioplayPage.prototype.prevTrack = function () { };
     AudioplayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<!--\n  Generated template for the AudioplayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>audioplay</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n       \n  <button ion-button [color]="isDanger ? \'danger\' : \'primary\'" [outline]="isOutline" (click)=" playSelectedTrack()">\n    Danger (Solid)\n  </button>\n        \n\n\n</ion-content>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
+            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<!--\n  Generated template for the AudioplayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>audioplay</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n  <ion-item *ngFor="let question of questions">\n  \n       <p>\n        The most popular industrial group ever, and largely\n        responsible for bringing the music to a mass audience.\n      </p>\n  \n  </ion-item>\n</ion-list>      \n</ion-content>\n<ion-footer>\n  <progress-bar></progress-bar>\n  <ion-grid>\n\n      <ion-row>\n\n          <ion-col width="33">\n              <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button (click)="playTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  (click)="pauseTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_media__["a" /* Media */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */], __WEBPACK_IMPORTED_MODULE_3_ionic_audio__["a" /* AudioProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_media__["a" /* Media */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_media__["a" /* Media */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_audio__["a" /* AudioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_audio__["a" /* AudioProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object])
     ], AudioplayPage);
     return AudioplayPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=audioplay.js.map
@@ -461,11 +456,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(455);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_items__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_items__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_providers__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(631);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__(632);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_native_audio__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_native_audio__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__(633);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_firestore__ = __webpack_require__(403);
@@ -474,14 +469,16 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome_module__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_audioplay_audioplay__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_vibration__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_media__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ionic_audio__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_media__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_progress_bar_progress_bar__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ionic_audio__ = __webpack_require__(330);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -517,7 +514,7 @@ var firebaseConfig = {
     messagingSenderId: "506828991311"
 };
 function myCustomAudioProviderFactory() {
-    return (window.hasOwnProperty('cordova')) ? new __WEBPACK_IMPORTED_MODULE_23_ionic_audio__["b" /* CordovaMediaProvider */]() : new __WEBPACK_IMPORTED_MODULE_23_ionic_audio__["d" /* WebAudioProvider */]();
+    return (window.hasOwnProperty('cordova')) ? new __WEBPACK_IMPORTED_MODULE_24_ionic_audio__["b" /* CordovaMediaProvider */]() : new __WEBPACK_IMPORTED_MODULE_24_ionic_audio__["d" /* WebAudioProvider */]();
 }
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -545,7 +542,8 @@ var AppModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_audioplay_audioplay__["a" /* AudioplayPage */]
+                __WEBPACK_IMPORTED_MODULE_20__pages_audioplay_audioplay__["a" /* AudioplayPage */],
+                __WEBPACK_IMPORTED_MODULE_23__components_progress_bar_progress_bar__["a" /* ProgressBarComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome_module__["WelcomePageModule"],
@@ -564,21 +562,21 @@ var AppModule = /** @class */ (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/audioplay/audioplay.module#AudioplayPageModule', name: 'AudioplayPage', segment: 'audioplay', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/audioplay/audioplay.module#AudioplayPageModule', name: 'AudioplayPage', segment: 'audioplay', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_13__angular_http__["a" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_23_ionic_audio__["c" /* IonicAudioModule */].forRoot(__WEBPACK_IMPORTED_MODULE_23_ionic_audio__["e" /* defaultAudioProviderFactory */])
+                __WEBPACK_IMPORTED_MODULE_24_ionic_audio__["c" /* IonicAudioModule */].forRoot(__WEBPACK_IMPORTED_MODULE_24_ionic_audio__["e" /* defaultAudioProviderFactory */])
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_9_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
@@ -608,7 +606,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 480:
+/***/ 479:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -637,7 +635,7 @@ var Item = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 481:
+/***/ 480:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -726,16 +724,16 @@ var Settings = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 482:
+/***/ 481:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -806,7 +804,7 @@ var User = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(401);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_vibration__ = __webpack_require__(391);
@@ -938,14 +936,56 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 652:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgressBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ProgressBarComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var ProgressBarComponent = /** @class */ (function () {
+    function ProgressBarComponent() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('progress'),
+        __metadata("design:type", Object)
+    ], ProgressBarComponent.prototype, "progress", void 0);
+    ProgressBarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'progress-bar',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\components\progress-bar\progress-bar.html"*/'<!-- Generated template for the ProgressBarComponent component -->\n\n  <div class="progress-outer">\n    <div class="progress-inner" [style.width]="progress + \'%\'">\n    </div>\n</div>'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\components\progress-bar\progress-bar.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProgressBarComponent);
+    return ProgressBarComponent;
+}());
+
+//# sourceMappingURL=progress-bar.js.map
+
+/***/ }),
+
 /***/ 70:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(481);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(481);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });

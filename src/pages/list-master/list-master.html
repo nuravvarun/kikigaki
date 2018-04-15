@@ -16,7 +16,7 @@
       </ion-thumbnail>
       <h2>{{ audio.name }}</h2>
       <p>{{ audio.type }} • {{ 'MAX_QUEST' | translate }} {{ audio.max_questions }}</p>
-      <button ion-button clear item-end (click)="audioTest({audiof:audio.audio})">Play</button>
+      <button ion-button clear item-end (click)="audioTest(audio.audio,audio.name)">Play</button>
     </ion-item>
   </ion-list>
 </ion-content>
