@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { AudioProvider } from 'ionic-audio';
 import { Media, MediaObject } from '@ionic-native/media';
+import { Observable } from 'rxjs/Observable';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import 'rxjs/add/operator/map';
 /**
  * Generated class for the AudioplayPage page.
  *
@@ -18,15 +21,23 @@ export class AudioplayPage {
   currentTrack: any;
   progressInterval: any;
   file:MediaObject;
-  questions:any[];
-  constructor(public navCtrl: NavController,public media: Media,public _audioProvider: AudioProvider, public navParams: NavParams,public modalCtrl: ModalController) {
+  audiosRef    : AngularFirestoreCollection<any>;
+  docRef:AngularFirestoreDocument<any>;
+  quesRef:AngularFirestoreCollection<any>;
+  questions: Observable<any>; 
+  constructor(public navCtrl: NavController,public media: Media,angFire   : AngularFirestore,public _audioProvider: AudioProvider, public navParams: NavParams,public modalCtrl: ModalController) {
    this.file=this.media.create(this.navParams.get('audiof'));
+   this.docRef=this.navParams.get('id');
+   this.audiosRef = angFire.doc('audio_1/'+this.navParams.get('id'))
+                    .collection('qlist');
+  
+   this.questions=this.audiosRef.valueChanges();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AudioplayPage');
     console.log(this.navParams.get('audiof'));
-    console.log(this.navParams.get('audiokey'));
+    console.log(this.navParams.get('id'));
   }
  
   playTrack(track) {
