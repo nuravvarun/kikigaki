@@ -12,6 +12,7 @@ export class WelcomePage {
  
   login() {
     this.navCtrl.push('LoginPage');
+  
   }
 
   signup() {
@@ -21,9 +22,5 @@ export class WelcomePage {
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
-  }
-  ionViewDidLeave() {
-    // the root left menu should be disabled on the tutorial page
-    this.menu.enable(true);
   }
 }

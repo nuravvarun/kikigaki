@@ -24,10 +24,8 @@ export class TutorialPage {
     });
   }
   startApp2() { 
-    this.navCtrl.setRoot('LoginPage', {}, {
-      animate: true,
-      direction: 'forward'
-    });
+    this.navCtrl.push('LoginPage');
+
   }
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page

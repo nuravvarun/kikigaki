@@ -1,13 +1,20 @@
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let question of questions | async">
-     
-      <h1>{{ question.ques2 }}</h1>
-      <h2>{{ question.q1 }}</h2>
-  
-    </ion-item>
-  </ion-list>
+<ion-header>
 
+    <ion-navbar>
+            <button ion-button menuToggle icon-only>
+                    <ion-icon name='menu'></ion-icon>
+            </button>
+      <ion-title>{{ title }}</ion-title>
+    </ion-navbar> 
+    </ion-header>
+<ion-content>
+    <ion-list>
+    <ion-item *ngFor="let question of questions | async">
+       
+     
+
+</ion-item>
+</ion-list>
 </ion-content>
 <ion-footer>
   <progress-bar></progress-bar>

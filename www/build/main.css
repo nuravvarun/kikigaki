@@ -26905,43 +26905,9 @@ progress-bar .progress-inner {
   background-color: #222;
 }
 
-.ios page-audioplay ion-list, .md page-audioplay ion-list {
-  margin-bottom: 110px;
-}
-
-.ios page-audioplay ion-list .alternate, .md page-audioplay ion-list .alternate {
-  background-color: #32db64;
-}
-
-.ios page-audioplay ion-list .playing, .md page-audioplay ion-list .playing {
-  background-color: #222;
-}
-
-.ios page-audioplay ion-list .playing img, .md page-audioplay ion-list .playing img {
-  opacity: 0.4;
-}
-
-.ios page-audioplay ion-avatar, .md page-audioplay ion-avatar {
-  position: relative;
-}
-
-.ios page-audioplay ion-spinner, .md page-audioplay ion-spinner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 4px !important;
-}
-
-.ios page-audioplay [ion-item], .md page-audioplay [ion-item] {
-  background-color: #488aff;
-  padding: 20px;
-}
-
 .ios page-audioplay ion-card, .md page-audioplay ion-card {
-  background-color: #f4f4f4;
-  opacity: 0.9;
-  height: 90px;
-  bottom: 0;
+  position: relative;
+  size: 100%;
 }
 
 .ios page-audioplay ion-footer, .md page-audioplay ion-footer {

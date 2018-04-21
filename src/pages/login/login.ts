@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController,Loading,
   LoadingController,Alert,
-  AlertController } from 'ionic-angular';
+  AlertController ,MenuController} from 'ionic-angular';
 
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
@@ -26,7 +26,7 @@ export class LoginPage {
     public toastCtrl: ToastController,
     public translateService: TranslateService,
     public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController,formBuilder: FormBuilder) {
+    public alertCtrl: AlertController,formBuilder: FormBuilder,public menu: MenuController) {
         this.loginForm = formBuilder.group({
         email: [
         '',
@@ -66,7 +66,9 @@ export class LoginPage {
     );
     this.loading = this.loadingCtrl.create();
     this.loading.present();
+
     }
+    this.menu.enable(true);
     }
   // Attempt to login in through our User service
 }

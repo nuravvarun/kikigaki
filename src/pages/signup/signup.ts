@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController,Loading,
-  LoadingController,Alert,
+  LoadingController,Alert,MenuController,
   AlertController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
@@ -26,7 +26,7 @@ export class SignupPage {
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService,
-    public loadingCtrl: LoadingController,public alertCtrl: AlertController,formBuilder: FormBuilder) {
+    public loadingCtrl: LoadingController,public alertCtrl: AlertController,public menu: MenuController,formBuilder: FormBuilder) {
     this.signupForm = formBuilder.group({
     email: [
     "",
@@ -66,5 +66,10 @@ export class SignupPage {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
     }
+    this.menu.enable(true);
+    }
+    ionViewDidLoad() {
+      // the root left menu should be disabled on the tutorial page
+      this.menu.enable(false);
     }
 }

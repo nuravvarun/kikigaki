@@ -30,13 +30,14 @@ export class ListMasterPage {
 });
 
   }
-audioTest(audiof:MediaObject,Id:string )
+audioTest(audiof:MediaObject,Id:string ,Name:string)
 {
   
-  let obj={audiof,Id:Id};
+  let obj={audiof,Id:Id,Name:Name};
   let myModal = this.modalCtrl.create(AudioplayPage,obj);
   myModal.present();
   console.log(Id);
 }
+
 
 }
