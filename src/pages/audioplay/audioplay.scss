@@ -1,10 +1,10 @@
 .ios, .md {
 
     page-audioplay {
-     
-        ion-card{
-            position: relative;
-            size: 100%;
+
+        .itemmargin {
+            margin-left:2px;
+            margin-right:2px;
         }
             ion-footer {
                 height: 75px;

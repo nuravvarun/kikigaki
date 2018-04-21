@@ -53,7 +53,9 @@
   "DELETE_BUTTON": "Delete",
 
   "CARDS_TITLE": "Social",
-
+  "QUESTION_TITLE":"Please listen the audio and answer the following questions.",
+  "ANS_TRUE":"True",
+  "ANS_FALSE":"False",
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\""
 }

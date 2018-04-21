@@ -14,15 +14,27 @@
           </ion-buttons>
     </ion-navbar> 
     </ion-header>
-<ion-content>
+
+<ion-content padding="true">
+        <h4 item-start>{{ 'QUESTION_TITLE' | translate }}</h4>
     <ion-list>
     <ion-item *ngFor="let question of questions | async">
-       
-     
-
-</ion-item>
+    <h1 item-start><b>1.</b></h1> 
+                         
+                  
+                        <ion-item item-content>
+                        <ion-label >{{ 'ANS_TRUE' | translate }}</ion-label>
+                        <ion-checkbox color="dark"></ion-checkbox></ion-item>
+                        <ion-item item-content>
+                        <ion-label>{{ 'ANS_FALSE' | translate }}</ion-label>
+                        <ion-checkbox color="dark"></ion-checkbox></ion-item>
+               
+                    </ion-item>
+               
 </ion-list>
 </ion-content>
+
+
 <ion-footer>
   <progress-bar></progress-bar>
   <ion-grid>
