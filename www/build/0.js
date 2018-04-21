@@ -7,7 +7,7 @@ webpackJsonp([0],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupPageModule", function() { return SignupPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup__ = __webpack_require__(668);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -75,7 +75,7 @@ var EmailValidator = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(401);
@@ -98,13 +98,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SignupPage = /** @class */ (function () {
-    function SignupPage(navCtrl, user, toastCtrl, translateService, loadingCtrl, alertCtrl, formBuilder) {
+    function SignupPage(navCtrl, user, toastCtrl, translateService, loadingCtrl, alertCtrl, menu, formBuilder) {
         this.navCtrl = navCtrl;
         this.user = user;
         this.toastCtrl = toastCtrl;
         this.translateService = translateService;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
+        this.menu = menu;
         this.signupForm = formBuilder.group({
             email: [
                 "",
@@ -140,6 +141,11 @@ var SignupPage = /** @class */ (function () {
             this.loading = this.loadingCtrl.create();
             this.loading.present();
         }
+        this.menu.enable(true);
+    };
+    SignupPage.prototype.ionViewDidLoad = function () {
+        // the root left menu should be disabled on the tutorial page
+        this.menu.enable(false);
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -147,9 +153,9 @@ var SignupPage = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_providers__["d" /* User */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["o" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* MenuController */], __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */]])
     ], SignupPage);
     return SignupPage;
 }());
