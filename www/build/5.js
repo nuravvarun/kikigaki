@@ -55,6 +55,14 @@ var ListMasterPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__audioplay_audioplay__ = __webpack_require__(401);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -73,20 +81,21 @@ var ListMasterPage = /** @class */ (function () {
     function ListMasterPage(navCtrl, modalCtrl, angFire) {
         this.navCtrl = navCtrl;
         this.modalCtrl = modalCtrl;
+        this.angFire = angFire;
         this.audiosRef = angFire.collection('audio_1');
-        this.audios = this.audiosRef.snapshotChanges().map(function (actions) {
-            return actions.map(function (a) {
+        this.audios = this.audiosRef.snapshotChanges().map(function (changes) {
+            return changes.map(function (a) {
+                var data = a.payload.doc.data();
                 var id = a.payload.doc.id;
-                return { id: id };
+                return __assign({ id: id }, data);
             });
         });
-        this.audios = this.audiosRef.valueChanges();
     }
-    ListMasterPage.prototype.audioTest = function (audiof, id) {
-        var obj = { audiof: audiof, id: id };
+    ListMasterPage.prototype.audioTest = function (audiof, Id) {
+        var obj = { audiof: audiof, Id: Id };
         var myModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__audioplay_audioplay__["a" /* AudioplayPage */], obj);
         myModal.present();
-        console.log(id);
+        console.log(Id);
     };
     ListMasterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

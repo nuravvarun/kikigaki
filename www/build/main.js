@@ -401,14 +401,14 @@ var AudioplayPage = /** @class */ (function () {
         this.modalCtrl = modalCtrl;
         this.file = this.media.create(this.navParams.get('audiof'));
         this.docRef = this.navParams.get('id');
-        this.audiosRef = angFire.doc('audio_1/' + this.navParams.get('id'))
+        this.audiosRef = angFire.doc('audio_1/' + this.navParams.get('Id'))
             .collection('qlist');
         this.questions = this.audiosRef.valueChanges();
     }
     AudioplayPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AudioplayPage');
         console.log(this.navParams.get('audiof'));
-        console.log(this.navParams.get('id'));
+        console.log(this.navParams.get('Id'));
     };
     AudioplayPage.prototype.playTrack = function (track) {
         this.file.play();

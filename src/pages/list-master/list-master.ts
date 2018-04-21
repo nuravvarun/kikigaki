@@ -19,24 +19,24 @@ import { DocumentReference } from '@firebase/firestore-types';
 export class ListMasterPage {
   audiosRef    : AngularFirestoreCollection<any>;
   audios: Observable<any[]>; 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, angFire   : AngularFirestore) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public angFire   : AngularFirestore) {
   this.audiosRef = angFire.collection('audio_1');
-  this.audios=this.audiosRef.snapshotChanges().map(actions =>{
-    return actions.map(a=>{
+  this.audios = this.audiosRef.snapshotChanges().map( changes => {
+    return changes.map(a => {
+      const data = a.payload.doc.data();
         const id = a.payload.doc.id;
-        return { id };
-    })
-  })
-  this.audios=this.audiosRef.valueChanges();
+        return { id,...data};
+    });
+});
 
   }
-audioTest(audiof:MediaObject,id:AAGUID)
+audioTest(audiof:MediaObject,Id:string )
 {
-
-  let obj={audiof,id};
+  
+  let obj={audiof,Id:Id};
   let myModal = this.modalCtrl.create(AudioplayPage,obj);
   myModal.present();
-  console.log(id);
+  console.log(Id);
 }
 
 }

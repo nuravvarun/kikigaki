@@ -28,7 +28,7 @@ export class AudioplayPage {
   constructor(public navCtrl: NavController,public media: Media,angFire   : AngularFirestore,public _audioProvider: AudioProvider, public navParams: NavParams,public modalCtrl: ModalController) {
    this.file=this.media.create(this.navParams.get('audiof'));
    this.docRef=this.navParams.get('id');
-   this.audiosRef = angFire.doc('audio_1/'+this.navParams.get('id'))
+   this.audiosRef = angFire.doc('audio_1/'+this.navParams.get('Id'))
                     .collection('qlist');
   
    this.questions=this.audiosRef.valueChanges();
@@ -37,7 +37,7 @@ export class AudioplayPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AudioplayPage');
     console.log(this.navParams.get('audiof'));
-    console.log(this.navParams.get('id'));
+    console.log(this.navParams.get('Id'));
   }
  
   playTrack(track) {
