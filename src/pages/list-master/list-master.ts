@@ -5,10 +5,8 @@ import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firest
 import 'rxjs/add/operator/map';
 
 import { AudioplayPage } from '../audioplay/audioplay';
-import { FirebaseDatabase } from '@firebase/database-types';
 import { MediaObject } from '@ionic-native/media';
-import { User } from '@firebase/auth-types';
-import { DocumentReference } from '@firebase/firestore-types';
+
 
 @IonicPage()
 @Component({

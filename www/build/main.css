@@ -26905,11 +26905,6 @@ progress-bar .progress-inner {
   background-color: #222;
 }
 
-.ios page-audioplay .itemmargin, .md page-audioplay .itemmargin {
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
 .ios page-audioplay ion-footer, .md page-audioplay ion-footer {
   height: 75px;
   background-color: #222;

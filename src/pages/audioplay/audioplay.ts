@@ -5,10 +5,9 @@ import { Media, MediaObject } from '@ionic-native/media';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
-import { createText } from '@angular/core/src/view/text';
-import { Title} from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverController } from 'ionic-angular';
+import { FormBuilder, FormGroup } from "@angular/forms";
 /**
  * Generated class for the AudioplayPage page.
  *
@@ -22,6 +21,7 @@ import { PopoverController } from 'ionic-angular';
   templateUrl: 'audioplay.html',
 })
 export class AudioplayPage {
+  public qpaper: FormGroup;
   currentTrack: any;
   title:string;
   modalTitle:'';
@@ -31,7 +31,16 @@ export class AudioplayPage {
   docRef:AngularFirestoreDocument<any>;
   quesRef:AngularFirestoreCollection<any>;
   questions: Observable<any>; 
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController, public viewCtrl: ViewController,public translateService: TranslateService,public media: Media,angFire: AngularFirestore,public _audioProvider: AudioProvider, public navParams: NavParams,public modalCtrl: ModalController) {
+  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController, 
+    public viewCtrl: ViewController,public translateService: TranslateService,
+    public media: Media,angFire: AngularFirestore,
+    public _audioProvider: AudioProvider, 
+    public navParams: NavParams,
+    public modalCtrl: ModalController,formBuilder: FormBuilder) {
+this.qpaper=formBuilder.group({
+
+});
+
   this.title=this.navParams.get('Name'); 
   this.file=this.media.create(this.navParams.get('audiof'));
     
@@ -50,6 +59,9 @@ export class AudioplayPage {
 dismiss()
 {
   this.viewCtrl.dismiss();
+}
+submitpaper(){
+  console.log('valid');
 }
   ionViewDidLoad() {
     

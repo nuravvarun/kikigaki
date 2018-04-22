@@ -16,23 +16,26 @@
     </ion-header>
 
 <ion-content padding="true">
-        <ion-fab right bottom>
-                <button ion-fab> <ion-icon name="checkmark"></ion-icon></button>
-              </ion-fab>
+       
     <h4>{{ 'QUESTION_TITLE' | translate }}</h4>
-    <ion-list radio-group  *ngFor="let question of questions | async">
+<form name="qpaper" ng-submit="submitpaper()" novalidate>
+    <ion-list radio-group  ng-model="choice"  *ngFor="let question of questions | async" >
     <ion-list-header>
             {{ question.q1 }}
     </ion-list-header>
             <ion-item>
                 <ion-label>{{ 'ANS_TRUE' | translate }}</ion-label>
-                <ion-radio></ion-radio>
+                <ion-radio value="true" ng-required="!choice"></ion-radio>
             </ion-item>
             <ion-item>
                 <ion-label>{{ 'ANS_FALSE' | translate }}</ion-label>
-                <ion-radio></ion-radio>
+                <ion-radio value="false" ng-required="!choice"></ion-radio>
             </ion-item>
     </ion-list> 
+<ion-fab right bottom>
+    <button type="submit"  ion-fab> <ion-icon name="checkmark"></ion-icon></button>
+ </ion-fab>
+</form>
 </ion-content>
 
 
