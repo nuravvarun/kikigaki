@@ -16,22 +16,23 @@
     </ion-header>
 
 <ion-content padding="true">
-        <h4 item-start>{{ 'QUESTION_TITLE' | translate }}</h4>
-    <ion-list>
-    <ion-item *ngFor="let question of questions | async">
-    <h1 item-start><b>1.</b></h1> 
-                         
-                  
-                        <ion-item item-content>
-                        <ion-label >{{ 'ANS_TRUE' | translate }}</ion-label>
-                        <ion-checkbox color="dark"></ion-checkbox></ion-item>
-                        <ion-item item-content>
-                        <ion-label>{{ 'ANS_FALSE' | translate }}</ion-label>
-                        <ion-checkbox color="dark"></ion-checkbox></ion-item>
-               
-                    </ion-item>
-               
-</ion-list>
+        <ion-fab right bottom>
+                <button ion-fab> <ion-icon name="checkmark"></ion-icon></button>
+              </ion-fab>
+    <h4>{{ 'QUESTION_TITLE' | translate }}</h4>
+    <ion-list radio-group  *ngFor="let question of questions | async">
+    <ion-list-header>
+            {{ question.q1 }}
+    </ion-list-header>
+            <ion-item>
+                <ion-label>{{ 'ANS_TRUE' | translate }}</ion-label>
+                <ion-radio></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{ 'ANS_FALSE' | translate }}</ion-label>
+                <ion-radio></ion-radio>
+            </ion-item>
+    </ion-list> 
 </ion-content>
 
 
