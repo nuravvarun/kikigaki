@@ -7,7 +7,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument}
 import 'rxjs/add/operator/map';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverController } from 'ionic-angular';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { Options } from './options';
 /**
  * Generated class for the AudioplayPage page.
  *
@@ -21,7 +22,13 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   templateUrl: 'audioplay.html',
 })
 export class AudioplayPage {
-  public qpaper: FormGroup;
+
+  selectedOption:Options;
+ options = [
+        new Options(1, 'True' ),
+        new Options(2, 'False' ),
+     ];
+  
   currentTrack: any;
   title:string;
   modalTitle:'';
@@ -37,9 +44,7 @@ export class AudioplayPage {
     public _audioProvider: AudioProvider, 
     public navParams: NavParams,
     public modalCtrl: ModalController,formBuilder: FormBuilder) {
-this.qpaper=formBuilder.group({
-
-});
+    
 
   this.title=this.navParams.get('Name'); 
   this.file=this.media.create(this.navParams.get('audiof'));
@@ -60,8 +65,16 @@ dismiss()
 {
   this.viewCtrl.dismiss();
 }
+
+getValue(optionid) {
+    this.selectedOption = this.options.filter((item)=> item.id == optionid)[0];
+}
 submitpaper(){
-  console.log('valid');
+  if(this.selectedOption.id=this.options[0].id){
+    console.log('working');
+
+  }else{console.log('not working');}
+
 }
   ionViewDidLoad() {
     
@@ -70,7 +83,9 @@ submitpaper(){
     console.log(this.navParams.get('Id'));
     console.log(this.navParams.get('Name'));
   }
-
+  select(value) {
+    console.log(value);
+}
  
   playTrack(track) {
     this.file.play();
