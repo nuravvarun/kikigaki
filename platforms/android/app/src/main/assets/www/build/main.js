@@ -22,43 +22,43 @@ webpackEmptyAsyncContext.id = 225;
 
 var map = {
 	"../pages/audioplay/audioplay.module": [
-		653,
+		656,
 		8
 	],
 	"../pages/content/content.module": [
-		654,
+		657,
 		7
 	],
 	"../pages/item-detail/item-detail.module": [
-		655,
+		658,
 		6
 	],
 	"../pages/list-master/list-master.module": [
-		656,
+		659,
 		5
 	],
 	"../pages/login/login.module": [
-		657,
+		660,
 		1
 	],
 	"../pages/settings/settings.module": [
-		658,
+		662,
 		4
 	],
 	"../pages/signup/signup.module": [
-		659,
+		661,
 		0
 	],
 	"../pages/tabs/tabs.module": [
-		660,
+		663,
 		3
 	],
 	"../pages/tutorial/tutorial.module": [
-		661,
+		664,
 		2
 	],
 	"../pages/welcome/welcome.module": [
-		350
+		352
 	]
 };
 function webpackAsyncContext(req) {
@@ -77,7 +77,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 310:
+/***/ 312:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -141,13 +141,13 @@ var Api = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 311:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Items; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(542);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -243,7 +243,7 @@ var Items = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 350:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -252,7 +252,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome__ = __webpack_require__(353);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -287,7 +287,7 @@ var WelcomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 351:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -333,7 +333,7 @@ var WelcomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 401:
+/***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -355,7 +355,7 @@ var Tab3Root = 'ContentPage';
 
 /***/ }),
 
-/***/ 402:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -369,6 +369,9 @@ var Tab3Root = 'ContentPage';
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__options__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_file__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_transfer__ = __webpack_require__(311);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -387,25 +390,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the AudioplayPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
+
 var AudioplayPage = /** @class */ (function () {
-    function AudioplayPage(popoverCtrl, navCtrl, viewCtrl, translateService, media, angFire, _audioProvider, navParams, modalCtrl, formBuilder) {
+    function AudioplayPage(popoverCtrl, navCtrl, viewCtrl, translateService, angFire, _audioProvider, navParams, modalCtrl, formBuilder, loadingCtrl, file, transfer, media, platform) {
+        var _this = this;
         this.popoverCtrl = popoverCtrl;
         this.navCtrl = navCtrl;
         this.viewCtrl = viewCtrl;
         this.translateService = translateService;
-        this.media = media;
         this._audioProvider = _audioProvider;
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
-        this.qpaper = formBuilder.group({});
+        this.loadingCtrl = loadingCtrl;
+        this.file = file;
+        this.transfer = transfer;
+        this.media = media;
+        this.platform = platform;
+        this.is_playing = false;
+        this.is_in_play = false;
+        this.is_ready = false;
+        this.duration = -1;
+        this.position = 0;
+        this.options = [
+            new __WEBPACK_IMPORTED_MODULE_8__options__["a" /* Options */](1, 'True'),
+            new __WEBPACK_IMPORTED_MODULE_8__options__["a" /* Options */](2, 'False'),
+        ];
+        // assign storage directory
+        this.platform.ready().then(function () {
+            if (_this.platform.is('ios')) {
+                _this.storageDirectory = _this.file.dataDirectory;
+            }
+            else if (_this.platform.is('android')) {
+                _this.storageDirectory = _this.file.externalDataDirectory;
+            }
+        });
         this.title = this.navParams.get('Name');
-        this.file = this.media.create(this.navParams.get('audiof'));
         this.audiosRef = angFire.doc('audio_1/' + this.navParams.get('Id'))
             .collection('qlist');
         this.questions = this.audiosRef.valueChanges();
@@ -418,33 +439,207 @@ var AudioplayPage = /** @class */ (function () {
     };
     AudioplayPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
+        this.stopPlayRecording();
+    };
+    AudioplayPage.prototype.getValue = function (optionid) {
+        this.selectedOption = this.options.filter(function (item) { return item.id == optionid; })[0];
     };
     AudioplayPage.prototype.submitpaper = function () {
-        console.log('valid');
+        if (this.selectedOption.id = this.options[0].id) {
+            console.log('working');
+        }
+        else {
+            console.log('not working');
+        }
     };
     AudioplayPage.prototype.ionViewDidLoad = function () {
+        this.prepareAudioFile();
         console.log(this.navParams.get('audiof'));
         console.log(this.navParams.get('Id'));
         console.log(this.navParams.get('Name'));
     };
-    AudioplayPage.prototype.playTrack = function (track) {
-        this.file.play();
+    AudioplayPage.prototype.select = function (value) {
+        console.log(value);
     };
-    AudioplayPage.prototype.pauseTrack = function (track) {
-        this.file.pause();
+    AudioplayPage.prototype.ionViewWillEnter = function () {
+        // comment out the following line when adjusting UI in browsers
     };
-    AudioplayPage.prototype.nextTrack = function () { };
-    AudioplayPage.prototype.prevTrack = function () { };
+    AudioplayPage.prototype.prepareAudioFile = function () {
+        var _this = this;
+        var url = this.navParams.get('audiof');
+        console.log(url);
+        this.platform.ready().then(function () {
+            _this.file.resolveDirectoryUrl(_this.storageDirectory).then(function (resolvedDirectory) {
+                // inspired by: https://github.com/ionic-team/ionic-native/issues/1711
+                console.log("resolved  directory: " + resolvedDirectory.nativeURL);
+                _this.file.checkFile(resolvedDirectory.nativeURL, _this.navParams.get('Name')).then(function (data) {
+                    if (data == true) {
+                        _this.getDurationAndSetToPlay();
+                    }
+                    else {
+                        console.log("not found!");
+                        throw { code: 1, message: "NOT_FOUND_ERR" };
+                    }
+                }).catch(function (err) {
+                    console.log("Error occurred while checking local files:");
+                    console.log(err);
+                    if (err.code == 1) {
+                        // not found! download!
+                        console.log("not found! download!");
+                        var loading_1 = _this.loadingCtrl.create({
+                            content: 'Downloading the song from the web...'
+                        });
+                        loading_1.present();
+                        var fileTransfer = _this.transfer.create();
+                        fileTransfer.download(url, _this.storageDirectory + _this.navParams.get('Name')).then(function (entry) {
+                            console.log('download complete' + entry.toURL());
+                            loading_1.dismiss();
+                            _this.getDurationAndSetToPlay();
+                        }).catch(function (err_2) {
+                            console.log("Download error!");
+                            loading_1.dismiss();
+                            console.log(err_2);
+                        });
+                    }
+                });
+            });
+        });
+    };
+    AudioplayPage.prototype.createAudioFile = function (pathToDirectory, filename) {
+        if (this.platform.is('ios')) {
+            return this.media.create((pathToDirectory).replace(/^file:\/\//, '') + '/' + filename);
+        }
+        else {
+            return this.media.create(pathToDirectory + filename);
+        }
+    };
+    AudioplayPage.prototype.getDurationAndSetToPlay = function () {
+        this.curr_playing_file = this.createAudioFile(this.storageDirectory, this.navParams.get('Name'));
+        this.curr_playing_file.play();
+        this.curr_playing_file.setVolume(0.0); // you don't want users to notice that you are playing the file
+        var self = this;
+        this.get_duration_interval = setInterval(function () {
+            if (self.duration == -1) {
+                self.duration = ~~(self.curr_playing_file.getDuration()); // make it an integer
+                // self.duration_string = self.fmtMSS(self.duration);   // replaced by the Angular DatePipe
+            }
+            else {
+                self.curr_playing_file.stop();
+                self.curr_playing_file.release();
+                self.setRecordingToPlay();
+                clearInterval(self.get_duration_interval);
+            }
+        }, 100);
+    };
+    AudioplayPage.prototype.getAndSetCurrentAudioPosition = function () {
+        var diff = 1;
+        var self = this;
+        this.get_position_interval = setInterval(function () {
+            var last_position = self.position;
+            self.curr_playing_file.getCurrentPosition().then(function (position) {
+                if (position >= 0 && position < self.duration) {
+                    if (Math.abs(last_position - position) >= diff) {
+                        // set position
+                        self.curr_playing_file.seekTo(last_position * 1000);
+                    }
+                    else {
+                        // update position for display
+                        self.position = position;
+                    }
+                }
+                else if (position >= self.duration) {
+                    self.stopPlayRecording();
+                    self.setRecordingToPlay();
+                }
+            });
+        }, 100);
+    };
+    AudioplayPage.prototype.setRecordingToPlay = function () {
+        var _this = this;
+        this.curr_playing_file = this.createAudioFile(this.storageDirectory, this.navParams.get('Name'));
+        this.curr_playing_file.onStatusUpdate.subscribe(function (status) {
+            // 2: playing
+            // 3: pause
+            // 4: stop
+            _this.message = status;
+            switch (status) {
+                case 1:
+                    _this.is_in_play = false;
+                    break;
+                case 2:// 2: playing
+                    _this.is_in_play = true;
+                    _this.is_playing = true;
+                    break;
+                case 3:// 3: pause
+                    _this.is_in_play = true;
+                    _this.is_playing = false;
+                    break;
+                case 4: // 4: stop
+                default:
+                    _this.is_in_play = false;
+                    _this.is_playing = false;
+                    break;
+            }
+        });
+        console.log("audio file set");
+        this.message = "audio file set";
+        this.is_ready = true;
+        this.getAndSetCurrentAudioPosition();
+    };
+    AudioplayPage.prototype.playRecording = function () {
+        this.curr_playing_file.play();
+    };
+    AudioplayPage.prototype.pausePlayRecording = function () {
+        this.curr_playing_file.pause();
+    };
+    AudioplayPage.prototype.stopPlayRecording = function () {
+        this.curr_playing_file.stop();
+        this.curr_playing_file.release();
+        clearInterval(this.get_position_interval);
+        this.position = 0;
+    };
+    AudioplayPage.prototype.controlSeconds = function (action) {
+        var step = 15;
+        var number = this.position;
+        switch (action) {
+            case 'back':
+                this.position = number < step ? 0.001 : number - step;
+                break;
+            case 'forward':
+                this.position = number + step < this.duration ? number + step : this.duration;
+                break;
+            default:
+                break;
+        }
+    };
+    /*** utility functions ***/
+    // this is replaced by the angular DatePipe:
+    // https://angular.io/api/common/DatePipe
+    AudioplayPage.prototype.fmtMSS = function (s) {
+        return (s - // take value s and subtract (will try to convert String to Number)
+            (s %= 60) // the new value of s, now holding the remainder of s divided by 60 
+        ) / 60 + (
+        // (can never result in a fractional value = no need for rounding)
+        // to which we concatenate a String (converts the Number to String)
+        // who's reference is chosen by the conditional operator:
+        9 < s // if    seconds is larger than 9
+            ? ':' // then  we don't need to prepend a zero
+            : ':0' // else  we do need to prepend a zero
+        ) + s; // and we add Number s to the string (converting it to String as well)
+    };
     AudioplayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<ion-header>\n\n    <ion-navbar>\n            <ion-buttons left>\n            <button ion-button icon-only  (click)="dismiss()">\n                    <ion-icon name="close"></ion-icon>\n            </button>\n            </ion-buttons>\n      <ion-title>{{ title }}</ion-title>\n      <ion-buttons end>\n            <button ion-button icon-only (click)="presentPopover($event)">\n                    <ion-icon name="more"></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-navbar> \n    </ion-header>\n\n<ion-content padding="true">\n       \n    <h4>{{ \'QUESTION_TITLE\' | translate }}</h4>\n<form name="qpaper" ng-submit="submitpaper()" novalidate>\n    <ion-list radio-group  ng-model="choice"  *ngFor="let question of questions | async" >\n    <ion-list-header>\n            {{ question.q1 }}\n    </ion-list-header>\n            <ion-item>\n                <ion-label>{{ \'ANS_TRUE\' | translate }}</ion-label>\n                <ion-radio value="true" ng-required="!choice"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label>{{ \'ANS_FALSE\' | translate }}</ion-label>\n                <ion-radio value="false" ng-required="!choice"></ion-radio>\n            </ion-item>\n    </ion-list> \n<ion-fab right bottom>\n    <button type="submit"  ion-fab> <ion-icon name="checkmark"></ion-icon></button>\n </ion-fab>\n</form>\n</ion-content>\n\n\n<ion-footer>\n  <progress-bar></progress-bar>\n  <ion-grid>\n\n      <ion-row>\n\n          <ion-col width="33">\n              <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button (click)="playTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  (click)="pauseTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
+            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<ion-header>\n\n    <ion-navbar>\n            <ion-buttons left>\n            <button ion-button icon-only  (click)="dismiss()">\n                    <ion-icon name="close"></ion-icon>\n            </button>\n            </ion-buttons>\n      <ion-title>{{ title }}</ion-title>\n      <ion-buttons end>\n            <button ion-button icon-only (click)="presentPopover($event)">\n                    <ion-icon name="more"></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-navbar> \n    </ion-header>\n\n<ion-content padding="true">\n       \n    <h4>{{ \'QUESTION_TITLE\' | translate }}</h4>\n    <ion-list radio-group  name="radio" *ngFor="let question of questions | async" >\n    <ion-list-header>\n            {{ question.q1 }}\n    </ion-list-header>\n    <ion-list *ngFor="let option of options">\n            <ion-item>\n                <ion-label>{{ option.name }}</ion-label>\n                <ion-radio  (click)="getValue(option.id)" value={{option.id}}></ion-radio>\n            </ion-item>\n        \n    </ion-list>\n    </ion-list> \n<ion-fab right bottom>\n    <button type="submit" (click)="submitpaper()" ion-fab> <ion-icon name="checkmark"></ion-icon></button>\n </ion-fab>\n</ion-content>\n<div>\n    <ion-range min="0" max="{{duration}}" [(ngModel)]="position"> <!--  [disabled]="is_in_play && is_playing"  -->\n      <ion-label range-left>{{ position*1000 | date:\'mm:ss\' }}</ion-label>\n      <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>\n      <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:\'mm:ss\' }}</ion-label>\n    </ion-range>\n  </div>\n\n\n<ion-footer>\n   \n  <ion-grid>\n\n      <ion-row>\n\n          <ion-col width="33">\n              <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button ion-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_media__["a" /* Media */], __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__["a" /* AngularFirestore */],
+            __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__["a" /* AngularFirestore */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_audio__["a" /* AudioProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */], __WEBPACK_IMPORTED_MODULE_7__angular_forms__["a" /* FormBuilder */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */], __WEBPACK_IMPORTED_MODULE_7__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_9__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_transfer__["a" /* FileTransfer */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_media__["a" /* Media */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]])
     ], AudioplayPage);
     return AudioplayPage;
 }());
@@ -453,13 +648,13 @@ var AudioplayPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 403:
+/***/ 405:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(416);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(418);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -467,7 +662,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 416:
+/***/ 418:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -478,36 +673,40 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(421);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(423);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_items__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_items__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_providers__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(630);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__(631);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_native_audio__ = __webpack_require__(632);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__(633);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(633);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__(634);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_native_audio__ = __webpack_require__(635);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__(636);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_firestore__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_add_operator_map__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome_module__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_audioplay_audioplay__ = __webpack_require__(402);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_vibration__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome_module__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_audioplay_audioplay__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_vibration__ = __webpack_require__(393);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_media__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_progress_bar_progress_bar__ = __webpack_require__(652);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ionic_audio__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_file__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_file_transfer__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_progress_bar_progress_bar__ = __webpack_require__(655);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ionic_audio__ = __webpack_require__(284);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -544,7 +743,7 @@ var firebaseConfig = {
     messagingSenderId: "506828991311"
 };
 function myCustomAudioProviderFactory() {
-    return (window.hasOwnProperty('cordova')) ? new __WEBPACK_IMPORTED_MODULE_24_ionic_audio__["b" /* CordovaMediaProvider */]() : new __WEBPACK_IMPORTED_MODULE_24_ionic_audio__["d" /* WebAudioProvider */]();
+    return (window.hasOwnProperty('cordova')) ? new __WEBPACK_IMPORTED_MODULE_26_ionic_audio__["b" /* CordovaMediaProvider */]() : new __WEBPACK_IMPORTED_MODULE_26_ionic_audio__["d" /* WebAudioProvider */]();
 }
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -573,7 +772,7 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_audioplay_audioplay__["a" /* AudioplayPage */],
-                __WEBPACK_IMPORTED_MODULE_23__components_progress_bar_progress_bar__["a" /* ProgressBarComponent */]
+                __WEBPACK_IMPORTED_MODULE_25__components_progress_bar_progress_bar__["a" /* ProgressBarComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome_module__["WelcomePageModule"],
@@ -597,8 +796,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
@@ -606,7 +805,7 @@ var AppModule = /** @class */ (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_13__angular_http__["a" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_24_ionic_audio__["c" /* IonicAudioModule */].forRoot(__WEBPACK_IMPORTED_MODULE_24_ionic_audio__["e" /* defaultAudioProviderFactory */])
+                __WEBPACK_IMPORTED_MODULE_26_ionic_audio__["c" /* IonicAudioModule */].forRoot(__WEBPACK_IMPORTED_MODULE_26_ionic_audio__["e" /* defaultAudioProviderFactory */])
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_9_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
@@ -619,7 +818,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["d" /* User */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_23__ionic_native_file__["a" /* File */],
                 __WEBPACK_IMPORTED_MODULE_22__ionic_native_media__["a" /* Media */],
+                __WEBPACK_IMPORTED_MODULE_24__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_24__ionic_native_file_transfer__["b" /* FileTransferObject */],
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_21__ionic_native_vibration__["a" /* Vibration */],
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_native_audio__["a" /* NativeAudio */],
@@ -636,7 +838,24 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 539:
+/***/ 541:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Options; });
+var Options = /** @class */ (function () {
+    function Options(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    return Options;
+}());
+
+//# sourceMappingURL=options.js.map
+
+/***/ }),
+
+/***/ 542:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -665,7 +884,7 @@ var Item = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 540:
+/***/ 543:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -754,16 +973,16 @@ var Settings = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 541:
+/***/ 544:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(545);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(314);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -822,7 +1041,7 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 630:
+/***/ 633:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -832,12 +1051,12 @@ var User = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(403);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(314);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_vibration__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_vibration__ = __webpack_require__(393);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -966,7 +1185,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 652:
+/***/ 655:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1012,10 +1231,10 @@ var ProgressBarComponent = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(540);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(544);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });
@@ -1029,5 +1248,5 @@ var ProgressBarComponent = /** @class */ (function () {
 
 /***/ })
 
-},[403]);
+},[405]);
 //# sourceMappingURL=main.js.map

@@ -25,7 +25,9 @@ import 'rxjs/add/operator/map';
 import { WelcomePageModule } from '../pages/welcome/welcome.module';
 import { AudioplayPage } from '../pages/audioplay/audioplay';
 import { Vibration } from '@ionic-native/vibration';
-import {Media} from '@ionic-native/media';
+import { Media} from '@ionic-native/media';
+import { File } from '@ionic-native/file';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
@@ -105,7 +107,10 @@ export function provideSettings(storage: Storage) {
     User,
     Camera,
     SplashScreen,
+    File,
     Media,
+    FileTransfer,
+    FileTransferObject,
     StatusBar,
     Vibration,
     NativeAudio,

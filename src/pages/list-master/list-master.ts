@@ -31,7 +31,7 @@ export class ListMasterPage {
 audioTest(audiof:MediaObject,Id:string ,Name:string)
 {
   
-  let obj={audiof,Id:Id,Name:Name};
+  let obj={audiof:audiof,Id:Id,Name:Name};
   let myModal = this.modalCtrl.create(AudioplayPage,obj);
   myModal.present();
   console.log(Id);
