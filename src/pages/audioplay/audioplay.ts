@@ -136,7 +136,7 @@ prepareAudioFile() {
           // not found! download!
           console.log("not found! download!");
           let loading = this.loadingCtrl.create({
-            content: 'Downloading the song from the web...'
+            content: 'Downloading the content from the database...'
           });
           loading.present();
           const fileTransfer: FileTransferObject = this.transfer.create();

@@ -26893,8 +26893,6 @@ progress-bar .progress-outer {
   width: 100%;
   padding: 1px;
   text-align: center;
-  background-color: #f4f4f4;
-  color: #fff;
 }
 
 progress-bar .progress-inner {
@@ -26902,7 +26900,6 @@ progress-bar .progress-inner {
   white-space: nowrap;
   overflow: hidden;
   padding: 2px;
-  background-color: #222;
 }
 
 .ios page-audioplay ion-footer, .md page-audioplay ion-footer {
@@ -26927,6 +26924,13 @@ progress-bar .progress-inner {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.ios page-audioplay .progress-bar, .md page-audioplay .progress-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 49px;
+  z-index: 12;
 }
 
 page-item-detail .item-profile {

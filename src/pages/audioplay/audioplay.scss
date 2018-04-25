@@ -8,6 +8,8 @@
                 ion-grid, ion-row, ion-col {
                     height: 100%;
                 }
+
+                
      
                 ion-col {
                     display: flex;
@@ -15,7 +17,17 @@
                     justify-content: center;
                 }
             }
+
+            .progress-bar {
+                width: 100%;
+                position: absolute;
+                bottom:49px;
+                z-index: 12; }
      
         }
 
 }
+$range-ios-bar-height:2px;
+$range-md-bar-height:2px;
+$range-md-padding-vertical:6px;
+$range-md-padding-horizontal:4px;
