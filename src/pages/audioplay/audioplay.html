@@ -18,21 +18,24 @@
 <ion-content padding="true">
        
     <h4>{{ 'QUESTION_TITLE' | translate }}</h4>
-    <ion-list radio-group  name="radio" *ngFor="let question of questions | async" >
-    <ion-list-header>
+    <form name="myForm" ng-submit="submitpaper(option.id)">
+    <ion-list *ngFor="let question of questions | async" >
+  <ion-list-header>
             {{ question.q1 }}
     </ion-list-header>
-    <ion-list *ngFor="let option of options">
-            <ion-item>
-                <ion-label>{{ option.name }}</ion-label>
-                <ion-radio  (click)="getValue(option.id)" value={{option.id}}></ion-radio>
-            </ion-item>
-        
+    <ion-list radio-group (ionChange)="getValue($event)" name="radio">
+    
+            <ion-item>  
+            <ion-label>{{ 'ANS_TRUE' | translate  }}</ion-label>
+            <ion-radio  value="1"></ion-radio>
+          </ion-item>    
+          <ion-item>
+            <ion-label>{{ 'ANS_FALSE' | translate }}</ion-label>
+            <ion-radio  value="2"></ion-radio>
+          </ion-item>
     </ion-list>
     </ion-list> 
-<ion-fab right bottom>
-    <button type="submit" (click)="submitpaper()" ion-fab> <ion-icon name="checkmark"></ion-icon></button>
- </ion-fab>
+</form>
 </ion-content>
 
 
@@ -48,17 +51,20 @@
 
       <ion-row>
 
-          <ion-col width="33">
-              <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+       <ion-col width="33">
+              <button (click)="makebookmark()" color="light" clear ion-button icon-only><ion-icon name="star"></ion-icon></button>
           </ion-col>
 
           <ion-col width="33">
               <button ion-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
               <button  class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
           </ion-col>
+        <!--  <ion-fab right bottom>
+            <button  ion-fab> <ion-icon name="checkmark"></ion-icon></button>
+         </ion-fab>-->
 
           <ion-col width="33">
-              <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+              <button type="submit" ng-disabled="checked" color="light" clear ion-button icon-only><ion-icon name="checkmark"></ion-icon></button>
           </ion-col>
 
       </ion-row>

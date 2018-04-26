@@ -46,11 +46,11 @@ var map = {
 		4
 	],
 	"../pages/signup/signup.module": [
-		663,
+		662,
 		0
 	],
 	"../pages/tabs/tabs.module": [
-		662,
+		663,
 		3
 	],
 	"../pages/tutorial/tutorial.module": [
@@ -441,10 +441,11 @@ var AudioplayPage = /** @class */ (function () {
         this.viewCtrl.dismiss();
         this.stopPlayRecording();
     };
-    AudioplayPage.prototype.getValue = function (optionid) {
-        this.selectedOption = this.options.filter(function (item) { return item.id == optionid; })[0];
+    AudioplayPage.prototype.getValue = function (value) {
+        console.log(value);
     };
-    AudioplayPage.prototype.submitpaper = function () {
+    AudioplayPage.prototype.submitpaper = function (radioValue) {
+        this.selectedOption = this.options.filter(function (item) { return item.id == radioValue; })[0];
         if (this.selectedOption.id = this.options[0].id) {
             console.log('working');
         }
@@ -487,7 +488,7 @@ var AudioplayPage = /** @class */ (function () {
                         // not found! download!
                         console.log("not found! download!");
                         var loading_1 = _this.loadingCtrl.create({
-                            content: 'Downloading the content from the database...'
+                            content: 'Downloading the song from the web...'
                         });
                         loading_1.present();
                         var fileTransfer = _this.transfer.create();
@@ -629,7 +630,7 @@ var AudioplayPage = /** @class */ (function () {
     };
     AudioplayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<ion-header>\n\n    <ion-navbar>\n            <ion-buttons left>\n            <button ion-button icon-only  (click)="dismiss()">\n                    <ion-icon name="close"></ion-icon>\n            </button>\n            </ion-buttons>\n      <ion-title>{{ title }}</ion-title>\n      <ion-buttons end>\n            <button ion-button icon-only (click)="presentPopover($event)">\n                    <ion-icon name="more"></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-navbar> \n    </ion-header>\n\n<ion-content padding="true">\n       \n    <h4>{{ \'QUESTION_TITLE\' | translate }}</h4>\n    <ion-list radio-group  name="radio" *ngFor="let question of questions | async" >\n    <ion-list-header>\n            {{ question.q1 }}\n    </ion-list-header>\n    <ion-list *ngFor="let option of options">\n            <ion-item>\n                <ion-label>{{ option.name }}</ion-label>\n                <ion-radio  (click)="getValue(option.id)" value={{option.id}}></ion-radio>\n            </ion-item>\n        \n    </ion-list>\n    </ion-list> \n<ion-fab right bottom>\n    <button type="submit" (click)="submitpaper()" ion-fab> <ion-icon name="checkmark"></ion-icon></button>\n </ion-fab>\n</ion-content>\n\n\n<div class="progress-bar">\n        <ion-range min="0" max="{{duration}}" [(ngModel)]="position"> <!--  [disabled]="is_in_play && is_playing"  -->\n          <!--  <ion-label range-left>{{ position*1000 | date:\'mm:ss\' }}</ion-label>\n            <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>\n            <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:\'mm:ss\' }}</ion-label>-->\n          </ion-range>\n </div>\n<ion-footer>\n  <ion-grid>\n\n      <ion-row>\n\n          <ion-col width="33">\n              <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button ion-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
+            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<ion-header>\n\n    <ion-navbar>\n            <ion-buttons left>\n            <button ion-button icon-only  (click)="dismiss()">\n                    <ion-icon name="close"></ion-icon>\n            </button>\n            </ion-buttons>\n      <ion-title>{{ title }}</ion-title>\n      <ion-buttons end>\n            <button ion-button icon-only (click)="presentPopover($event)">\n                    <ion-icon name="more"></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-navbar> \n    </ion-header>\n\n<ion-content padding="true">\n       \n    <h4>{{ \'QUESTION_TITLE\' | translate }}</h4>\n    <form name="myForm" ng-submit="submitpaper(option.id)">\n    <ion-list *ngFor="let question of questions | async" >\n  <ion-list-header>\n            {{ question.q1 }}\n    </ion-list-header>\n    <ion-list radio-group (ionChange)="getValue($event)" name="radio">\n    \n            <ion-item>  \n            <ion-label>{{ \'ANS_TRUE\' | translate  }}</ion-label>\n            <ion-radio  value="1"></ion-radio>\n          </ion-item>    \n          <ion-item>\n            <ion-label>{{ \'ANS_FALSE\' | translate }}</ion-label>\n            <ion-radio  value="2"></ion-radio>\n          </ion-item>\n    </ion-list>\n    </ion-list> \n</form>\n</ion-content>\n\n\n<div class="progress-bar">\n        <ion-range min="0" max="{{duration}}" [(ngModel)]="position"> <!--  [disabled]="is_in_play && is_playing"  -->\n          <!--  <ion-label range-left>{{ position*1000 | date:\'mm:ss\' }}</ion-label>\n            <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>\n            <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:\'mm:ss\' }}</ion-label>-->\n          </ion-range>\n </div>\n<ion-footer>\n  <ion-grid>\n\n      <ion-row>\n\n       <ion-col width="33">\n              <button (click)="makebookmark()" color="light" clear ion-button icon-only><ion-icon name="star"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button ion-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n        <!--  <ion-fab right bottom>\n            <button  ion-fab> <ion-icon name="checkmark"></ion-icon></button>\n         </ion-fab>-->\n\n          <ion-col width="33">\n              <button type="submit" ng-disabled="checked" color="light" clear ion-button icon-only><ion-icon name="checkmark"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */],
@@ -797,8 +798,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]

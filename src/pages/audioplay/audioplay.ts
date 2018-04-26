@@ -7,7 +7,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument}
 import 'rxjs/add/operator/map';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverController } from 'ionic-angular';
-import { FormBuilder} from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
 import { Options } from './options';
 
 
@@ -89,10 +89,12 @@ dismiss()
   this.stopPlayRecording();
 }
 
-getValue(optionid) {
-    this.selectedOption = this.options.filter((item)=> item.id == optionid)[0];
+getValue(value) {
+  
+    
 }
-submitpaper(){
+submitpaper(radioValue){
+  this.selectedOption = this.options.filter((item)=> item.id == radioValue)[0];
   if(this.selectedOption.id=this.options[0].id){
     console.log('working');
 
@@ -136,7 +138,7 @@ prepareAudioFile() {
           // not found! download!
           console.log("not found! download!");
           let loading = this.loadingCtrl.create({
-            content: 'Downloading the content from the database...'
+            content: 'Downloading the song from the web...'
           });
           loading.present();
           const fileTransfer: FileTransferObject = this.transfer.create();

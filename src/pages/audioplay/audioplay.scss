@@ -2,7 +2,7 @@
 
     page-audioplay {
             ion-footer {
-                height: 75px;
+                height: 55px;
                 background-color: map-get($colors, dark);
      
                 ion-grid, ion-row, ion-col {
@@ -21,7 +21,7 @@
             .progress-bar {
                 width: 100%;
                 position: absolute;
-                bottom:49px;
+                bottom:28px;
                 z-index: 12; }
      
         }

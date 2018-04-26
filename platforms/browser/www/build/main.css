@@ -26903,7 +26903,7 @@ progress-bar .progress-inner {
 }
 
 .ios page-audioplay ion-footer, .md page-audioplay ion-footer {
-  height: 75px;
+  height: 55px;
   background-color: #222;
 }
 
@@ -26929,7 +26929,7 @@ progress-bar .progress-inner {
 .ios page-audioplay .progress-bar, .md page-audioplay .progress-bar {
   width: 100%;
   position: absolute;
-  bottom: 49px;
+  bottom: 28px;
   z-index: 12;
 }
 
