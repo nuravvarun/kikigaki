@@ -74,8 +74,13 @@ export class AudioplayPage {
   this.title=this.navParams.get('Name');    
   this.audiosRef = angFire.doc('audio_1/'+this.navParams.get('Id'))
                     .collection('qlist');  
-   this.questions=this.audiosRef.valueChanges();
-   
+    this.questions = this.audiosRef.snapshotChanges().map( changes => {
+    return changes.map(a => {
+      const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id,...data};
+    });
+  });
   }
   presentPopover(myEvent) {
     //let popover = this.popoverCtrl.create();
@@ -89,8 +94,9 @@ dismiss()
   this.stopPlayRecording();
 }
 
-getValue(value) {
-  
+getValue(id) {
+  console.log(id);
+
     
 }
 submitpaper(radioValue){

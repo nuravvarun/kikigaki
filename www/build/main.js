@@ -372,6 +372,14 @@ var Tab3Root = 'ContentPage';
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__options__ = __webpack_require__(541);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_file__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_transfer__ = __webpack_require__(311);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -429,7 +437,13 @@ var AudioplayPage = /** @class */ (function () {
         this.title = this.navParams.get('Name');
         this.audiosRef = angFire.doc('audio_1/' + this.navParams.get('Id'))
             .collection('qlist');
-        this.questions = this.audiosRef.valueChanges();
+        this.questions = this.audiosRef.snapshotChanges().map(function (changes) {
+            return changes.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return __assign({ id: id }, data);
+            });
+        });
     }
     AudioplayPage.prototype.presentPopover = function (myEvent) {
         //let popover = this.popoverCtrl.create();
@@ -441,8 +455,8 @@ var AudioplayPage = /** @class */ (function () {
         this.viewCtrl.dismiss();
         this.stopPlayRecording();
     };
-    AudioplayPage.prototype.getValue = function (value) {
-        console.log(value);
+    AudioplayPage.prototype.getValue = function (id) {
+        console.log(id);
     };
     AudioplayPage.prototype.submitpaper = function (radioValue) {
         this.selectedOption = this.options.filter(function (item) { return item.id == radioValue; })[0];
@@ -630,7 +644,7 @@ var AudioplayPage = /** @class */ (function () {
     };
     AudioplayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<ion-header>\n\n    <ion-navbar>\n            <ion-buttons left>\n            <button ion-button icon-only  (click)="dismiss()">\n                    <ion-icon name="close"></ion-icon>\n            </button>\n            </ion-buttons>\n      <ion-title>{{ title }}</ion-title>\n      <ion-buttons end>\n            <button ion-button icon-only (click)="presentPopover($event)">\n                    <ion-icon name="more"></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-navbar> \n    </ion-header>\n\n<ion-content padding="true">\n       \n    <h4>{{ \'QUESTION_TITLE\' | translate }}</h4>\n    <form name="myForm" ng-submit="submitpaper(option.id)">\n    <ion-list *ngFor="let question of questions | async" >\n  <ion-list-header>\n            {{ question.q1 }}\n    </ion-list-header>\n    <ion-list radio-group (ionChange)="getValue($event)" name="radio">\n    \n            <ion-item>  \n            <ion-label>{{ \'ANS_TRUE\' | translate  }}</ion-label>\n            <ion-radio  value="1"></ion-radio>\n          </ion-item>    \n          <ion-item>\n            <ion-label>{{ \'ANS_FALSE\' | translate }}</ion-label>\n            <ion-radio  value="2"></ion-radio>\n          </ion-item>\n    </ion-list>\n    </ion-list> \n</form>\n</ion-content>\n\n\n<div class="progress-bar">\n        <ion-range min="0" max="{{duration}}" [(ngModel)]="position"> <!--  [disabled]="is_in_play && is_playing"  -->\n          <!--  <ion-label range-left>{{ position*1000 | date:\'mm:ss\' }}</ion-label>\n            <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>\n            <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:\'mm:ss\' }}</ion-label>-->\n          </ion-range>\n </div>\n<ion-footer>\n  <ion-grid>\n\n      <ion-row>\n\n       <ion-col width="33">\n              <button (click)="makebookmark()" color="light" clear ion-button icon-only><ion-icon name="star"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button ion-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n        <!--  <ion-fab right bottom>\n            <button  ion-fab> <ion-icon name="checkmark"></ion-icon></button>\n         </ion-fab>-->\n\n          <ion-col width="33">\n              <button type="submit" ng-disabled="checked" color="light" clear ion-button icon-only><ion-icon name="checkmark"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
+            selector: 'page-audioplay',template:/*ion-inline-start:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/'<ion-header>\n\n    <ion-navbar>\n            <ion-buttons left>\n            <button ion-button icon-only  (click)="dismiss()">\n                    <ion-icon name="close"></ion-icon>\n            </button>\n            </ion-buttons>\n      <ion-title>{{ title }}</ion-title>\n      <ion-buttons end>\n            <button ion-button icon-only (click)="presentPopover($event)">\n                    <ion-icon name="more"></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-navbar> \n    </ion-header>\n\n<ion-content padding="true">\n       \n    <h4>{{ \'QUESTION_TITLE\' | translate }}</h4>\n    <form name="myForm" ng-submit="submitpaper(option.id)">\n    <ion-list *ngFor="let question of questions | async" >\n  \n    <ion-list radio-group (ionChange)="getValue(id)" name="radio">\n        <ion-list-header>\n            {{ question.id }}\n        </ion-list-header>\n            <ion-item>  \n            <ion-label>{{ \'ANS_TRUE\' | translate  }}</ion-label>\n            <ion-radio  value="true" id=question.id></ion-radio>\n            </ion-item>    \n            <ion-item>\n            <ion-label>{{ \'ANS_FALSE\' | translate }}</ion-label>\n            <ion-radio  value="false"id=question.id></ion-radio>\n            </ion-item>\n    </ion-list>\n    </ion-list> \n</form>\n</ion-content>\n\n\n<div class="progress-bar">\n        <ion-range min="0" max="{{duration}}" [(ngModel)]="position"> <!--  [disabled]="is_in_play && is_playing"  -->\n          <!--  <ion-label range-left>{{ position*1000 | date:\'mm:ss\' }}</ion-label>\n            <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>\n            <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:\'mm:ss\' }}</ion-label>-->\n          </ion-range>\n </div>\n<ion-footer>\n  <ion-grid>\n\n      <ion-row>\n\n       <ion-col width="33">\n              <button (click)="makebookmark()" color="light" clear ion-button icon-only><ion-icon name="star"></ion-icon></button>\n          </ion-col>\n\n          <ion-col width="33">\n              <button ion-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>\n              <button  class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing" [disabled]="!is_ready" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>\n          </ion-col>\n        <!--  <ion-fab right bottom>\n            <button  ion-fab> <ion-icon name="checkmark"></ion-icon></button>\n         </ion-fab>-->\n\n          <ion-col width="33">\n              <button type="submit" ng-disabled="checked" color="light" clear ion-button icon-only><ion-icon name="checkmark"></ion-icon></button>\n          </ion-col>\n\n      </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Projectkikigaki\kikigaki\src\pages\audioplay\audioplay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */],
