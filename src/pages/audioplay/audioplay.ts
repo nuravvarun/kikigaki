@@ -7,7 +7,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument}
 import 'rxjs/add/operator/map';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverController } from 'ionic-angular';
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder,FormControl, FormGroup } from "@angular/forms";
 import { Options } from './options';
 
 
@@ -21,6 +21,9 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
   templateUrl: 'audioplay.html',
 })
 export class AudioplayPage {
+  form = new FormGroup({
+    value: new FormControl('false'),
+  });
   filename: any;
   curr_playing_file: MediaObject;
   storageDirectory: any;
@@ -44,7 +47,7 @@ export class AudioplayPage {
         new Options(1, 'True' ),
         new Options(2, 'False' ),
      ];
-
+     Ans:String;
   currentTrack: any;
   title:string;
   modalTitle:'';
@@ -77,6 +80,7 @@ export class AudioplayPage {
     this.questions = this.audiosRef.snapshotChanges().map( changes => {
     return changes.map(a => {
       const data = a.payload.doc.data();
+
         const id = a.payload.doc.id;
         return { id,...data};
     });
@@ -94,24 +98,26 @@ dismiss()
   this.stopPlayRecording();
 }
 
-getValue(value,id) {
+getValue(value:string,id) {
   var docRef=this.audiosRef.doc(id);
   docRef.ref.get().then(function(doc) {
     if (doc.exists) {
-        console.log("Document data:", doc.data());
-    } else {
+     console.log(JSON.stringify(value));
+     let Ans:string=doc.get('ans');
+     console.log(Ans);
+        if(JSON.stringify(value)===Ans){
+        console.log("ans is true");}
+        else{
+          console.log('ans is false');
+        }
+        } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
     }
 }).catch(function(error) {
     console.log("Error getting document:", error);
-});
+});}
 
-
-  console.log(id);
-
-    
-}
 submitpaper(radioValue){
   this.selectedOption = this.options.filter((item)=> item.id == radioValue)[0];
   if(this.selectedOption.id=this.options[0].id){

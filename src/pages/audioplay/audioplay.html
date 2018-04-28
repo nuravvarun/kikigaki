@@ -18,20 +18,20 @@
 <ion-content padding="true">
        
     <h4>{{ 'QUESTION_TITLE' | translate }}</h4>
-    <form name="myForm" ng-submit="submitpaper(option.id)">
+    <form  [formGroup]="form" ng-submit="submitpaper(option.id)">
 <ion-list *ngFor="let question of questions | async" >
   
-    <ion-list radio-group   name="radio">
+    <ion-list radio-group  >
         <ion-list-header>
             {{ question.id }}
         </ion-list-header>
             <ion-item>  
             <ion-label>{{ 'ANS_TRUE' | translate  }}</ion-label>
-            <ion-radio [value]='true' (ionSelect)="getValue(value,question.id)"  ></ion-radio>
+            <ion-radio  [value]="true" (ionSelect)="getValue(true,question.id)"  ></ion-radio>
             </ion-item>    
             <ion-item>
             <ion-label>{{ 'ANS_FALSE' | translate }}</ion-label>
-            <ion-radio [value]='false' (ionSelect)="getValue(value,question.id)"></ion-radio>
+            <ion-radio  [value]="false"  (ionSelect)="getValue(false,question.id)"></ion-radio>
             </ion-item>
     </ion-list>
 </ion-list> 
